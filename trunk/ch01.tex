@@ -19,6 +19,7 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 	显示器 & XGA($1024 \times 768$) & 高分辨率或双显示器 \\
 	\hline
 	\end{tabular}
+	\caption{}
 	\end{table}
 
 \section{入门}
@@ -42,17 +43,16 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 		\item 从Subversion源中提取最新版的软件
 		\end{itemize}
 
-		Cytoscape的安装目录（无论是什么平台）中包含以下文件：
+		Cytoscape的安装目录（无论是什么平台）中包含表~\ref{table:3}~中的文件。
 
-		\begin{table}[htbp]
-		\label{table:3}
-		\begin{tabular*}{\textwidth}{|l|l|}
+		\begin{table}[!h]
+		\begin{tabular}{|l|l|}
 			\hline
 			文件 & 描述 \\
 			\hline
 			cytoscape.jar & Cytoscape~的主程序（~Java~压缩包）。\\
 			\hline
-			\multirow{4}{*}{cytoscape.sh} & 从命令行运行~Cytoscape~的脚本（用于~Linux~和~\\&Mac OS X~）。\\
+			\multirow{2}{*}{cytoscape.sh} & 从命令行运行~Cytoscape~的脚本（用于~Linux~和~\\&Mac OS X~）。\\
 			\hline
 			cytoscape.bat & 运行Cytoscape的脚本（用于~Windows~）。\\
 			\hline
@@ -72,23 +72,32 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 			\hline
 				& galExpData.pvals -- 基因表达矩阵文件示例$^*$。\\
 			\hline
-				& galFilteredAttrTable.xls -- 微软~Excel~格式的节点属性文件示例。\\
+				\multirow{2}{*}{} & galFilteredAttrTable.xls -- 微软~Excel~格式的节点属性\\ & 文件示例。\\
 			\hline
-				& galFiltered.sif -- 用上面的数据库和多个注释数据库创建的会话示例$^*$。\\
+				\multirow{2}{*}{} & galFiltered.sif -- 用上面的数据库和多个注释数据库创建\\ & 的会话示例$^*$。\\
 			\hline
-				& BINDyeast.sif -- BIND数据库中酵母的蛋白质相互作用网络，2006年12月$^{**}$。\\
+				\multirow{2}{*}{} & BINDyeast.sif -- BIND数据库中酵母的蛋白质相互作用\\ & 网络，2006年12月$^{**}$。\\
 			\hline
-				& BINDhuman.sif -- BIND数据库中人类的蛋白质相互作用网络，2006年12月$^{**}$。\\
+				\multirow{2}{*}{} & BINDhuman.sif -- BIND数据库中人类的蛋白质相互作\\ & 用网络，2006年12月$^{**}$。\\
 			\hline
 				& yeastHighQuality -- 分子生物相互作用的示例文件$^{***}$。\\
 			\hline
-				& interactome\_{}merged\_{}networkTable.gz -- 制表符分割格式的人类相互作用网络$^{****}$。\\
+				\multirow{2}{*}{} & interactome\_{}merged\_{}networkTable.gz -- 制表符分割格\\ & 式的人类相互作用网络$^{****}$。\\
 			\hline
 				& sampleStyle.props -- 附加的~Visual Sytle~示例。\\
 			\hline
-		\end{tabular*}
-		%\caption{$^*$ 来自~Ideker er al, Science 292:929 (2001)\\
-		%		$^{**}$ 来自~http://www.blueprint.org/bind/bind_downloads.html\\
-		%		$^{***}$ 来自Mering et al, Nature, 417:399 (2002)~和~Lee et al, Science 298:799 (2002)}
+		\end{tabular}
+		\caption{$^*$ 来自~Ideker er al, Science 292:929 (2001)； $^{**}$ 来自~http://www.blueprint.org/bind/bind\_{}downloads.html； $^{***}$ 来自~Mering et al, Nature, 417:399 (2002) Lee et al, Science 298:799 (2002)；$^{****}$来自~Cytoscape~教程网页。原始数据可以从~http://cytoscape.org/cgi-bin/moin.cgi/Data\_{}Sets/上由Andrew Garrow、Yeyejide Adeleye和Guy Warner（Unilever, Safety and Enviromental Assurance Center）创建的“A merged human interactome”中下载。 }
+		\label{table:3}
 		\end{table}
 
+	\subsection{启动程序}
+		双击安装程序创建的图标，或是在命令行中运行~cytoscape.sh（Linux或Mac OS X），也可以双击~cytoscape.bat(Windows)~就能启动~Cytoscape。还可以在命令行中将这个jar文件以命令行参数的形式传递给命令~java -Xms512M -jar cytoscape.jar -p plugins~。~-Xms512M~标志是告诉~java~给~Cytoscape~分配较多的内存，~-p plugins~则是告诉~Cytoscape~加载~plugins~目录中所有的插件。插件对于~Cytoscape~是非常重要的，诸如布局（layout）、过滤器（filter）和属性浏览器之类的功能都是由插件提供的。关于命令行参数的详细信息请阅读\textit{命令行参数}一章。在~Windows~中，只需要双击~jar~文件就能启动~Cytoscape。不过，这样就不能使用命令行参数了（比如制定插件目录的位置）。
+
+		成功地启动~Cytoscape后，就会看到如图~\ref{fig:1.1}~所示的窗口（图~\ref{fig:1.1}~来自Mac OS 10.4）。
+
+		\begin{figure}[h]
+			\includegraphics{images/cytoscape_startup_mac.png}
+			\caption{}
+			\label{fig:1.1}
+		\end{figure}
