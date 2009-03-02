@@ -17,11 +17,78 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 	显卡   & 板载集成显卡 & 高端独立显卡 \\
 	\hline
 	显示器 & XGA($1024 \times 768$) & 高分辨率或双显示器 \\
+	\hline
 	\end{tabular}
 	\end{table}
 
 \section{入门}
-	\subsection{安装Java}
-	如果计算机上还没有安装Java，那么首先要下载并安装~Java SE 5~或~6~。Cytoscape
-	\subsection{安装Cytoscape}
+	\subsection{安装~Java}
+		如果计算机上还没有安装~Java，那么首先要下载并安装~Java SE 5~或~6~。\textbf{Cytoscape~从2.5版开始就不能在~Java 1.4~上运行。必须安装~Java SE 5~或~6~！！！}
+		Java SE 5~和~Java SE 6可以从这里下载：
+		\begin{itemize}
+		\item \href{http://java.sun.com/javase/downloads/index_jdk5.jsp}{Java SE 5}
+		\item \href{http://java.sun.com/javase/downloads/index.jsp}{Java SE 6}
+		\end{itemize}
+	
+		一般情况下，Java SE 6~的运行速度要快一些。所以，如果您的计算机兼容~Java SE 6~的话，请尽量使用~Java SE 6。
+
+	\subsection{安装~Cytoscape}
+		Cytoscape~供下载的版本很多，安装方法也不尽相同。所有的版本都可以从~http://cytoscape.org~网站下载。
+		
+		\begin{itemize}
+		\item Windows、Mac OS以及Linux平台上的自动安装包
+		\item 压缩发行版
+		\item 从源代码编译
+		\item 从Subversion源中提取最新版的软件
+		\end{itemize}
+
+		Cytoscape的安装目录（无论是什么平台）中包含以下文件：
+
+		\begin{table}[htbp]
+		\label{table:3}
+		\begin{tabular*}{\textwidth}{|l|l|}
+			\hline
+			文件 & 描述 \\
+			\hline
+			cytoscape.jar & Cytoscape~的主程序（~Java~压缩包）。\\
+			\hline
+			\multirow{4}{*}{cytoscape.sh} & 从命令行运行~Cytoscape~的脚本（用于~Linux~和~\\&Mac OS X~）。\\
+			\hline
+			cytoscape.bat & 运行Cytoscape的脚本（用于~Windows~）。\\
+			\hline
+			LICENSE.txt/html & Cytoscape GNU LGPL~授权。\\
+			\hline
+			lib/ & Cytoscape运行所需的jar库。\\
+			\hline
+			docs/ & 各种格式的用户手册。也就是你正在阅读的东西。\\
+			\hline
+			plugins/ & jar格式的Cytoscape插件。\\
+			\hline
+			sampleData/ & \\
+			\hline
+				& galFiltered.gml -- 分子相互作用网络数据示例$^*$。\\
+			\hline
+				& galFiltered.sif -- Simple Interaction~格式的同一个网络$^*$\\
+			\hline
+				& galExpData.pvals -- 基因表达矩阵文件示例$^*$。\\
+			\hline
+				& galFilteredAttrTable.xls -- 微软~Excel~格式的节点属性文件示例。\\
+			\hline
+				& galFiltered.sif -- 用上面的数据库和多个注释数据库创建的会话示例$^*$。\\
+			\hline
+				& BINDyeast.sif -- BIND数据库中酵母的蛋白质相互作用网络，2006年12月$^{**}$。\\
+			\hline
+				& BINDhuman.sif -- BIND数据库中人类的蛋白质相互作用网络，2006年12月$^{**}$。\\
+			\hline
+				& yeastHighQuality -- 分子生物相互作用的示例文件$^{***}$。\\
+			\hline
+				& interactome\_{}merged\_{}networkTable.gz -- 制表符分割格式的人类相互作用网络$^{****}$。\\
+			\hline
+				& sampleStyle.props -- 附加的~Visual Sytle~示例。\\
+			\hline
+		\end{tabular*}
+		%\caption{$^*$ 来自~Ideker er al, Science 292:929 (2001)\\
+		%		$^{**}$ 来自~http://www.blueprint.org/bind/bind_downloads.html\\
+		%		$^{***}$ 来自Mering et al, Nature, 417:399 (2002)~和~Lee et al, Science 298:799 (2002)}
+		\end{table}
 
