@@ -1,3 +1,10 @@
+% LaTeX Source file for Cytoscape Manual Chinese Edition
+% File name: ch01.tex
+% Author: Chen Gang (chen.gang1983@gmail)
+% Date: March 3th, 2009
+% License: GPL 3.0 or later
+
+
 Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行。对于其他能安装Java 5的操作系统平台，比如以Solaris和FreeBSD为代表的UNIX，Cytoscape也能运行，但官方并对此提供支持。
 
 \section{系统要求}
@@ -154,4 +161,12 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 		\begin{figure}[!h]
 		\centering
 		\includegraphics[width=\textwidth]{images/one_million_network.png}
+		\caption{\textbf{随机生成的scale-free网络，含有500K个节点和500K条边：}如果正确地设置了内存参数，就能看到这个庞大的网络。在这个例子中，Cytoscape~大约使用了~5GB~内存。堆栈的大小是10MB。如果要使用大内存（大于4GB），就需要64位的操作系统和64位的Java SE 5或6。}
 		\end{figure}
+
+		注意：有些web服务客户端是多线程程序，其中没有线程都是使用-Xss选项所指定的内存大小。如果web服务客户端应为内存不足而失败，请调低堆栈的大小，然后再试一次。
+
+		更多的信息请参看\href{How to increase memory for Cytoscape}{http://cytoscape.org/cgi-bin/moin.cgi/How to increase memory 20for Cytoscape}
+
+		\subsubsection{注意目录位置}
+		为了能让程序正常运行，在解压后，所有的文件位置都不能随便改动。Cytoscape的核心程序会按照默认的目录结果去查找其所需的库。如果你确实手痒痒想自己改一下，可以通过修改\$CLASSPATH或是cytoscape.jar的manifest文件，这样在任何地方都能启动Cytoscape。
