@@ -92,12 +92,66 @@ Cytoscape~是一个Java程序，能在~Linux~、~Windows~和~Mac OS X~上运行�
 		\end{table}
 
 	\subsection{启动程序}
-		双击安装程序创建的图标，或是在命令行中运行~cytoscape.sh（Linux或Mac OS X），也可以双击~cytoscape.bat(Windows)~就能启动~Cytoscape。还可以在命令行中将这个jar文件以命令行参数的形式传递给命令~java -Xms512M -jar cytoscape.jar -p plugins~。~-Xms512M~标志是告诉~java~给~Cytoscape~分配较多的内存，~-p plugins~则是告诉~Cytoscape~加载~plugins~目录中所有的插件。插件对于~Cytoscape~是非常重要的，诸如布局（layout）、过滤器（filter）和属性浏览器之类的功能都是由插件提供的。关于命令行参数的详细信息请阅读\textit{命令行参数}一章。在~Windows~中，只需要双击~jar~文件就能启动~Cytoscape。不过，这样就不能使用命令行参数了（比如制定插件目录的位置）。
+		双击安装程序创建的图标，或是在命令行中运行~cytoscape.sh（Linux或Mac OS X），也可以双击~cytoscape.bat(Windows)~就能启动~Cytoscape。还可以在命令行中将这个jar文件以命令行参数的形式传递给命令~java -Xmx512M -jar cytoscape.jar -p plugins~。~-Xmx512M~标志是告诉~java~给~Cytoscape~分配较多的内存，~-p plugins~则是告诉~Cytoscape~加载~plugins~目录中所有的插件。插件对于~Cytoscape~是非常重要的，诸如布局（layout）、过滤器（filter）和属性浏览器之类的功能都是由插件提供的。关于命令行参数的详细信息请阅读\textit{命令行参数}一章。在~Windows~中，只需要双击~jar~文件就能启动~Cytoscape。不过，这样就不能使用命令行参数了（比如制定插件目录的位置）。
 
 		成功地启动~Cytoscape后，就会看到如图~\ref{fig:1.1}~所示的窗口（图~\ref{fig:1.1}~来自Mac OS 10.4）。
 
 		\begin{figure}[h]
-			\includegraphics{images/cytoscape_startup_mac.png}
-			\caption{}
+			\includegraphics[width=\textwidth]{images/cytoscape_startup_mac.png}
+			\caption{Cytoscape启动界面}
 			\label{fig:1.1}
+		\end{figure}
+
+		\subsubsection{注意内存使用量}
+
+		随着用用户所加载的网络的规模的增加，Cytoscape所需的内存也会增加。内存的使用量取决于网络对象（节点和边）的数量以及属性的数量。表~\ref{table:4}~和~\ref{table:5}是对内存需求量的粗略估计。
+
+		\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline
+			对象的数量（节点和边） & 建议内存\\
+			\hline
+			0 -- 70,000 & 512M（默认值）\\
+			\hline
+			70,000 -- 150,000 & 800M \\
+			\hline
+		\end{tabular}
+		\caption{无视图情况下的建议内存大小}
+		\label{table:4}
+		\end{table}
+
+		\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline
+			对象的数量（节点和边） & 建议内存\\
+			\hline
+			0 -- 20,000 & 512M（默认值）\\
+			\hline
+			20,000 -- 70,000 & 800M \\
+			\hline
+			70,000 -- 150,000 & 1G \\
+			\hline
+		\end{tabular}
+		\caption{有视图情况下的建议内存大小}
+		\label{table:5}
+		\end{table}
+
+		\subsubsection{Cytoscape的整体内存需求}
+		可以通过命令行参数增加Cytoscape的内存大小。例如，如果要给Cytoscape分配1G的内存，可以在命令行输入：
+		\begin{verbatim}
+		java -Xmx1GB -jar cytoscape.jar -p plugins
+		\end{verbatim}
+
+		\subsubsection{堆栈尺寸（stact size）}
+		这是另一个跟内存分配有关的选项。Cytoscape的部分功能需要较大的堆栈空间（某些操作所需的临时内存，比如Layout）。由于这个堆栈的大小是独立于前面的Xmx值的，所以有时候Layout算法会因为内存不足而失败。为了避免这种情况，可以用-Xss制定更大的堆。如果对大型网络布局时失败，可以尝试下面的命令：
+		\begin{verbatim}
+		java -Xmx1GB -Xss10M -jar cytoscape.jar -p plugins
+		\end{verbatim}
+		选项-Xss10M的意思就是将堆的尺寸设置为10MB。在大部分情况下，这能解决由于内存不足导致的Layout问题。
+
+		\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\textwidth]{images/one_million_network.png}
 		\end{figure}
