@@ -64,7 +64,8 @@ Cytoscape~还提供了一个用于构建和编辑网络的编辑器，把面板�
 	\end{figure}
 
 	\subsection{Layout}
-	通过~Layout~菜单可以控制网络显示的形式。
+	通过~Layout~菜单可以控制网络显示的形式。该菜单上半部分（Rotate，Scale，Align and
+	 Distribute）是用于控制网络的显示。菜单的下半部分是用于自动布局网络的各种布局算法。
 
 	\begin{figure}[!h]
 	\centerline{\includegraphics[scale=0.6]{images/menu_layout_25.png}}
@@ -73,17 +74,41 @@ Cytoscape~还提供了一个用于构建和编辑网络的编辑器，把面板�
 		
 	
 	\subsection{Plugins}
+	Plugins~菜单中提供了插件管理功能（安装、升级和删除），以及插件所添加的选项，比如
+	~Agilent Literature Search~或~Merge Networks~。具体的内容取决于所加载的插件。
+	\footnote{注意：在~\href{http://cytoscape.org/plugins2.php}
+	{http://cytoscape.org/plugins2.php}~上有Cytoscape~插件的介绍。}
+	
 	\begin{figure}[!h]
 	\centerline{\includegraphics[scale=0.6]{images/menu_plugins_25.png}}
 	\end{figure}
 	
 	\subsection{Help}
+	在Help菜单中可以打开在线帮助，浏览本手册内容。“About...”则会显示正在运行的~Cytos
+	cape~的版本信息。
 	\begin{figure}[!h]
 	\centerline{\includegraphics[scale=0.6]{images/menu_help_25.png}}
 	\end{figure}
 
 \section{网络管理}
-	\subsection{网络窗口排列}
+	Cytoscape~2.3之后的版本都可以同时加载多个网络，有无视图都可以。网络中存放着用户
+	加载所有节点和边，以及用户做指定的视图。同一个网络可以有多个视图。网络（以及相应
+	的视图）可以有序地组织在一起。
+
+    下图中展示了多个网络同时加载，并按层次结构组织的例子：
+
+    \begin{figure}[!h]
+    \includegraphics[width=\textwidth]{images/cytoscape_network_hierarchy_25.png}
+    \end{figure}
+
+    网络管理器（CytoPanel 1右上方的树状显示窗口）展示了当前所加载的网络。点击其中的
+    网络就会在主窗口里面显示该网络的视图。在网络管理器中会显示各个网络的名称和尺寸（
+    节点和边的数量）。如果网络是从文件中加载的，网络的名称就是文件名。
+
+    对于那些规模较大的网络（数千个点和边），需要较长的时间才能显示出来。正因为如此，
+    Cytoscape中的网络可以不包含“视图”（View）。
+    \subsection{网络窗口排列}
+
 
 \section{网络概览窗口}
 	

@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Mon Mar 30 23:27:46 CST 2009
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=Cytoscape_manual.tex
+outputFile=Cytoscape_manual.pdf
+langSpell=en
+markDer=true
+srcDir=
