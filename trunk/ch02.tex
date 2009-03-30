@@ -1,9 +1,9 @@
-加载了网络之后，Cytoscape的界面如图~\ref{fig:2.1}~所示。
+加载了网络之后，~Cytoscape~的界面如图~\ref{fig:2.1}~所示。
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{images/cytoscape_startup_network_26.png}
-\caption{Cytoscape加载网络后的界面截图}
+\caption{~Cytoscape~加载网络后的界面截图}
 \label{fig:2.1}
 \end{figure}
 
@@ -50,7 +50,7 @@ Cytoscape~还提供了一个用于构建和编辑网络的编辑器，把面板�
 
 	\subsection{View}
 在~View~菜单中可以控制网络管理面板（CytoPanel 1）、属性浏览器（CytoPanel 2）、网络概览（在CytoPanel
-1中）和VizMapper的显示和隐藏。
+1中）和VizMapper的显示和隐藏。
 
 	\begin{figure}[!h]
 	\centerline{\includegraphics[scale=0.6]{images/menu_view_26.png}}
@@ -104,9 +104,23 @@ Cytoscape~还提供了一个用于构建和编辑网络的编辑器，把面板�
     网络管理器（CytoPanel 1右上方的树状显示窗口）展示了当前所加载的网络。点击其中的
     网络就会在主窗口里面显示该网络的视图。在网络管理器中会显示各个网络的名称和尺寸（
     节点和边的数量）。如果网络是从文件中加载的，网络的名称就是文件名。
+    
+    对于那些规模较大的网络（数千个点和边），需要较长的时间才能显示出来。正因为如此， 
+    Cytoscape中的网络可以不包含“视图”（View）。带有视图的网络以绿色高亮显示，而没有
+    视图的网络则以红色高亮显示。在网络管理器中网络的名称上点击鼠标右键，就能创建或是
+    销毁视图，通过Edit菜单也能实现同样的操作。用同样的方法可以销毁已加载的网络。在上
+    图中，加载了七个网络，其中六个绿色的是有视图的，而红色的那个则是没有视图的 
+    。\footnote{译者注：图中总共只有六个网络，都是绿色的，似乎原文有误。}
 
-    对于那些规模较大的网络（数千个点和边），需要较长的时间才能显示出来。正因为如此，
-    Cytoscape中的网络可以不包含“视图”（View）。
+Cytoscape中的某些特定操作会创建出新的网络。如果新网络是从原有的网络中创建的，例如选择
+原网络中的部分节点，将这些节点复制到新网络中（用File~$\to$~New~$\to$~Network option），
+在这种情况下新网络就会显示为原网络的子网络。Cytoscape的这种显示方法使得用户能很快地
+看出网络间的关系。上图中树顶部的那些网络就是这样生成的。
+
+The available network views are also arranged as multiple overlapping windows in
+the network view window. You can maximize, minimize, and destroy network views by
+using the normal window controls for your operating system.
+
     \subsection{网络窗口排列}
 
 
