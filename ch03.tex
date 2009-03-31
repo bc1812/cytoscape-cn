@@ -1,0 +1,97 @@
+Cytoscape~可以接受很多命令行参数，包括指定网络文件、属性文件和会话文件。下面的内容是用
+Cytoscape~的“-h”或“--help”运行参数得到的：
+\begin{verbatim}
+usage: java -Xmx512M -jar cytoscape.jar [OPTIONS]
+ -h,--help               Print this message.
+ -v,--version            Print the version number.
+ -s,--session <file>     Load a cytoscape session (.cys) file.
+ -N,--network <file>     Load a network file (any format).
+ -e,--edge-attrs <file>  Load an edge attributes file (edge attribute format).
+ -n,--node-attrs <file>  Load a node attributes file (node attribute format).
+ -m,--matrix <file>      Load a node attribute matrix file (table).
+ -p,--plugin <file>      Load a plugin jar file, directory of jar files,
+                         plugin class name, or plugin jar URL.
+ -P,--props <file>       Load cytoscape properties file (Java properties
+                         format) or individual property: -P name=value.
+ -V,--vizmap <file>      Load vizmap properties file (Java properties format).
+\end{verbatim}
+Any file specified for an option may be specified as either a path or as a URL.
+For example you can specify a network as a file (assuming that myNet.sif exists
+in the current working directory): cytoscape.sh -N myNet.sif. Or you can specify
+a network as a URL: cytoscape.sh -N http://example.com/myNet.sif.
+
+\begin{table}
+\begin{tabular}{|l|l|}
+\hline
+Argument & Description \\
+\hline
+-h,--help & This flag generates the help output you see above and exits.\\
+\hline
+-v,--version & This flag prints the version number of Cytoscape and exits.\\
+\hline
+-s,--session <file> & This option specifies a session file to be loaded. Since only one session file
+can be loaded at a given time, this option may only specified once on a given
+command line. The option expects a .cys Cytoscape session file. It is customary,
+although not necessary, for session file names to contain the .cys extension.\\
+
+-N,--network <file>
+    
+
+This option is used to load all types of network files. SIF, GML, and XGMML files
+can all be loaded using the -N option. You can specify as many networks as
+desired on a single command line.
+
+-e,--edge-attrs <file>
+    
+
+This option specifies an edge attributes file. You may specify as many edge
+attribute files as desired on a single command line.
+
+-n,--node-attrs <file>
+    
+
+This option specifies a node attributes file. You may specify as many node
+attribute files as desired on a single command line.
+
+-m,--matrix <file>
+    
+
+This option specifies a data matrix file. In a biological context, the data
+matrix consists of expression data. All data matrix files are read into node
+attributes. You may specify as many data matrix files as desired on a single
+command line.
+
+-p,--plugin <file>
+    
+
+This option specifies a cytoscape plugin (.jar) file to be loaded by Cytoscape.
+This option also subsumes the previous "resource plugin option". You may specify
+a class name that identifies your plugin and the plugin will be loaded if the
+plugin is in Cytoscape's CLASSPATH. For example, assuming that the class MyPlugin
+can be found in the CLASSPATH, you could specify the plugin like this:
+cytoscape.sh -p MyPlugin.class. A final means of specifying plugins is to specify
+a file name whose contents contain a list of plugin jar files.
+
+-P,--props <file>
+    
+
+This option specifies Cytoscape properties. Properties can be specified either as
+a properties file (in Java's standard properties format), or as individual
+properties. To specify individual properties, you must specify the property name
+followed by the property value where the name and value are separated by the '='
+sign. For example to specify the defaultSpeciesName: cytoscape.sh -P
+defaultSpeciesName=Human. If you would like to include spaces in your property,
+simply enclose the name and value in quotation marks: cytoscape.sh -P
+"defaultSpeciesName=Homo Sapiens". The property option subsumes previous options
+-noCanonicalization, -species, and -bioDataServer. Now it would look like:
+cytoscape.sh -P defaultSpeciesName=Human -P noCanonicalization=true -P
+bioDataServer=myServer.
+
+-V,--vizmap <file>
+    
+
+This option specifies a visual properties file.
+\end{tabular}
+\end{table}
+All options described above (including plugins) can be loaded from the GUI once
+Cytoscape is running.
