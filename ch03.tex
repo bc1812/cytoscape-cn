@@ -23,42 +23,34 @@ cytoscape.sh -N http://example.com/myNet.sif。
 \item[参数] 用途
 \item[-h,--help] 显示上面已经展示过的帮助信息，然后退出程序。
 \item[-v,--version] 显示~Cytoscape~的版本号，然后退出程序。
-\item[-s,--session $<$file$>$] This option specifies a session file to be loaded. 
-Since only one session file can be loaded at a given time, this option may only specified once on a given
-command line. The option expects a .cys Cytoscape session file. It is customary,
-although not necessary, for session file names to contain the .cys extension.
-\item[-N,--network $<$file$>$]This option is used to load all types of network files. SIF, GML, and XGMML files
-can all be loaded using the -N option. You can specify as many networks as
-desired on a single command line.
-\item[-e,--edge-attrs $<$file$>$] This option specifies an edge attributes file. You may specify as many edge
-attribute files as desired on a single command line.
-\item[-n,--node-attrs $<$file$>$] This option specifies a node attributes file. You may specify as many node
-attribute files as desired on a single command line.
-\item[-m,--matrix $<$file$>$]This option specifies a data matrix file. In a biological context, the data
-matrix consists of expression data. All data matrix files are read into node
-attributes. You may specify as many data matrix files as desired on a single
-command line.
-\item[-p,--plugin $<$file$>$]This option specifies a cytoscape plugin (.jar) file to be loaded by Cytoscape.
-This option also subsumes the previous "resource plugin option". You may specify
-a class name that identifies your plugin and the plugin will be loaded if the
-plugin is in Cytoscape's CLASSPATH. For example, assuming that the class MyPlugin
-can be found in the CLASSPATH, you could specify the plugin like this:
-cytoscape.sh -p MyPlugin.class. A final means of specifying plugins is to specify
-a file name whose contents contain a list of plugin jar files.
-\item[-P,--props $<$file$>$]This option specifies Cytoscape properties. Properties can be specified either as
-a properties file (in Java's standard properties format), or as individual
-properties. To specify individual properties, you must specify the property name
-followed by the property value where the name and value are separated by the '='
-sign. For example to specify the defaultSpeciesName: cytoscape.sh -P
-defaultSpeciesName=Human. If you would like to include spaces in your property,
-simply enclose the name and value in quotation marks: cytoscape.sh -P
-"defaultSpeciesName=Homo Sapiens". The property option subsumes previous options
--noCanonicalization, -species, and -bioDataServer. Now it would look like:
-cytoscape.sh -P defaultSpeciesName=Human -P noCanonicalization=true -P
-bioDataServer=myServer.
-\item[-V,--vizmap $<$file$>$] This option specifies a visual properties file.
+
+\item[-s,--session $<$file$>$] 这个选项用于加载指定的会话文件。
+由于会话文件只能在特定的时间加载，所以这个选项在命令行中只能使用一次。要给这个选项指
+定一个.cys~的~Cytoscape~会话文件。不过，cys~后缀并不是必须的。
+\item[-N,--network $<$file$>$]
+这个选项用来加载各种类型的网络文件，包括~SIG~、~GML~和~XGMML的各种格式的文件都可以通过- N
+选项加载到~Cytoscape~中。在一个命令中可以同时加载多个网络。
+\item[-e,--edge-attrs $<$file$>$] 这个选项用来指定边属性文件。
+在一个命令中可以同指定多个边属性文件。
+\item[-n,--node-attrs $<$file$>$] 这个选项用于指定节点属性文件。在一个命令中可以同指定多个边属性文件。
+\item[-m,--matrix $<$file$>$]这个选项用于指定数据矩阵文件。
+如果是用于生物网络分析，这个数据矩阵的内容就是基因表达数据。所有的数据矩阵文件都会以
+节点属性的形式读入Cytoscape。在一个命令中可以同指定多个数据矩阵文件。
+\item[-p,--plugin $<$file$>$]这个选项用于将指定的Cytoscape插件（.jar）文件加载到
+Cytoscape中。老版本中的“资源插件选项（resource plugin option）”已经合并到了这个选项
+中\footnote{这句话的翻译不确定，请有了解老版本Cytoscape的同学指正}。如果插件位于
+Cytoscape的CLASSPATH路径中，还可以用类名称来制定插件。例如，假设能在~CLASSPATH~中找
+到名为~MyPlugin~的类，那么就可以这样指定插件：cytoscape.sh -p MyPlugin.class。最后
+一种指定插件的方面就是指定一个文本文件，在这个文本文件中列出所有需要加载的插件的~jar~文件名。 
+\item[-P,--props
+$<$file$>$]这个选项可以用来指定~Cytoscape~的各项属性。可以用过属性文件（格式是标准的
+~Java~属性格式），也可以用等号设置单个属性的值。例如，指定缺省的物种：
+cytoscape.sh -P defaultSpeciesName=Human。如果属性中有空格，加上引号就可以了，例如：
+cytoscape.sh -P "defaultSpeciesName=Homo Sapiens"。
+这个选项可以用来代替以前的-noCanonicalization,-species和-bioDataServer选项。现在的
+命令可以写成这样的：cytoscape.sh -P defaultSpeciesName=Human -P noCanonicalization=true
+-P bioDataServer=myServer.
+\item[-V,--vizmap $<$file$>$] 这个选项用来指定可视化属性文件。
 \end{description}
 
-
-All options described above (including plugins) can be loaded from the GUI once
-Cytoscape is running.
+上面介绍的这些属性（包括插件）都可以在正在运行的Cytoscape的GUI中加载。
