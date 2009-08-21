@@ -33,3 +33,21 @@ Cytoscape~的缺省属性是可以修改的。
 
 在~Edit$\rightarrow$Preferences$\rightarrow$Properties\ldots中编辑属性，选上~Make Current Cytoscape Properties Default~。这样，当前属性就会保存到.cytoscape目录中，对每个Cytoscape会话都会生效。否则，这些属性就只会保存到当前会话的.cys文件中，新的会话依然会使用缺省属性。
 
+\section{书签的管理}
+
+ Cytoscape中预设了一些指向Cytoscape服务器上的演示网络文件的书签。用户可以通过Edit$\rightarrow$Preferences$\rightarrow$Bookmarks\ldots启动书签管理器来添加、修改和删除书签。 
+
+\begin{center}[!h]
+\includegraphics[width=\textwidth]{images/BookmarkManager.png} 
+\end{center}
+
+书签分为两类：网络书签和注释书签。网络书签是指向互联网上网络文件的URL。这些网络都可以加载到Cytoscape中。注释书签是指向ontology注释文件的URL。只有在导入ontology的时候才会用到注释书签。
+ 
+\subsection{代理服务器的设置}
+在Edit$\rightarrow$Preferences$\rightarrow$Proxies\ldots中可以设置Cytoscape的代理服务器。
+
+\begin{center}[!h]
+\includegraphics[width=\textwidth]{images/ProxyServerSetting.png} 
+\end{center}
+
+设置了代理服务器之后，通过URL加载网络时的网络数据就会通过代理服务器。其他插件也可以使用这个功能。
