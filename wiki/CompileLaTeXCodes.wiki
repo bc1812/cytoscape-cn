@@ -11,7 +11,10 @@ On Windows:
   # Install a LaTeX distribution, MikTeX is highly recommended.
   # Install a SVN client, TortoiseSVN is highly recommended.
   # Check out source codes, images, and other necessary files.
-{{{svn checkout http://cytoscape-cn.googlecode.com/svn/trunk/ cytoscape-cn-read-only
+{{{
+svn checkout http://cytoscape-cn.googlecode.com/svn/trunk/ cytoscape-cn-read-only
 }}}
   # Switch to the _cytoscape-cn-read-only_ directory, and compile the file named _Cytoscape_manual.tex_ with _pdflatex_:
-{{{pdflatex Cytoscape_manual.tex}}}
+{{{
+pdflatex Cytoscape_manual.tex
+}}}
