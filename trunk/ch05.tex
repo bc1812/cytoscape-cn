@@ -10,20 +10,20 @@
 在\ref{ch06}中介绍的所有网络文件格式都可以导入到Cytoscape中。点击File $\rightarrow$ Import $\rightarrow$ Network (multiple file types)，在弹出的``Import Network''窗口中就可以把网络文件导入到Cytoscape中。可以是本地计算机上的网络文件，也可以是远程计算机上的（用URL）。
 
  \subsection{从本地计算机上导入网络}
- By default, Cytoscape loads networks from the local computer. 
+在缺省情况下，Cytoscape会从本地计算机加载网络。
 
- The Import Networks dialog shows a default setting of ``Data Source Type: Local,'' meaning that network files from the local computer will be available for importing. Choose the correct file by clicking on the Select button (only file types that Cytoscape recognizes will be shown), and then load the network by clicking on the Import button. Some sample network files of different types have been included in the sampleData folder in Cytoscape. 
+在Import Networks中会显示缺省的``Data Source Type: Local,''，意思就是从本地计算机导入网络文件。 点击Select按钮选择要加载的网络文件（只有Cytoscape能识别的文件才会显示出来），然后点击Import按钮把网络加载到Cytoscape中。在Cytoscape的sampleData的文件夹中能找到一些不同类型的网络文件。 
 
  Network files in SIF, GML, and XGMML formats may also be loaded directly from the command line using the -N option. 
 \begin{center}
-\includegraphics[wdith=\textwidth]{images/network_import_dialog1_25.png} 
+\includegraphics[width=\textwidth]{images/network_import_dialog1_25.png} 
 \end{center}
 
 \subsection{Load Networks from a Remote Computer (URL import)}
  The Import Networks dialog is also capable of importing network files using a URL. To do this, set the Data Source Type to Remote and insert the appropriate URL, either manually or using URL bookmarks. Bookmarked URLs can be accessed by clicking on the arrow to the right of the text field (see the Bookmark Manager in Preferences for more details on bookmarks). Also, you can drag and drop links from web browser to the URL text box. Once a URL has been specified, click on the Import button to load the network. 
 
 \begin{center}
- \includegraphics[wdith=\textwidth]{images/network_import_dialog2_25.png} 
+ \includegraphics[width=\textwidth]{images/network_import_dialog2_25.png} 
 \end{center}
 
  Importing networks from URL addresses has an important caveat. Because Cytoscape determines file type primarily (not exclusively) by file extension, it can have trouble importing networks with URLs that don't end in a human readable file name. If Cytoscape does not recognize a meaningful file name and extension in the URL, it will attempt to guess the type of file based on MIME type. If the MIME type is not recognizable to any of our import handlers, then the import will fail. 
@@ -34,7 +34,7 @@
  Introduced in version 2.4, Cytoscape now supports the import of networks from delimited text files and Excel workbooks using Edit $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... . An interactive GUI allows users to specify parsing options for specified files. The screen provides a preview that shows how the file will be parsed given the current configuration. As the configuration changes, the preview updates automatically. In addition to specifying how the file will be parsed, the user must also choose the columns that represent the Source nodes, the Target nodes, and an optional edge interaction type. 
 
 \begin{center}
- \includegraphics[wdith=\textwidth]{images/network_table_import.png} 
+ \includegraphics[width=\textwidth]{images/network_table_import.png} 
 \end{center}
 
 \subsection{Supported Files}
@@ -90,7 +90,7 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 \item Enable/Disable Attribute Column - By \emph{left}
 -clicking on a column header in the preview table, you can enable/disable edge attributes. If the header is checked and entries are blue, the column will be imported as an edge attribute. For example, the table below shows that columns 1 through 3 will be used as network data, column 4 will not be imported, and columns 5 and 6 will be imported as edge attributes. 
 \begin{center}
-\includegraphics[wdith=\textwidth]{images/network_table_sample.png} 
+\includegraphics[width=\textwidth]{images/network_table_sample.png} 
 \end{center}
 
 \item 
@@ -108,7 +108,7 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 
 \subsection{Advanced Options}
 \begin{center}
- \includegraphics[wdith=\textwidth]{images/network_import_advanced.png} 
+ \includegraphics[width=\textwidth]{images/network_import_advanced.png} 
 \end{center}
 
  You can select several options by checking the Show Text File Import Options checkbox. 
@@ -126,7 +126,7 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 \subsection{Modify Attribute Name/Type}
 
 \begin{center}
- \includegraphics[wdith=\textwidth]{images/network_table_attr_dialog1.png} 
+ \includegraphics[width=\textwidth]{images/network_table_attr_dialog1.png} 
 \end{center}
 
  Attribute names and data types can be modified here. 
