@@ -5,58 +5,40 @@
 \item 从Web Service导入网络。
 \item 创建一个空网络，然后手动地添加节点和边。
 \end{enumerate}
-\section{Import Fixed-Format Network Files}
+\section{导入确定格式的网络文件}
 
- Network files can be specified in any of the formats described in the Supported Network Formats chapter. Networks are imported into Cytoscape through the ``Import Network'' window, which can be accessed by going to File $\rightarrow$ Import $\rightarrow$ Network (multiple file types). The network file can either be located directly on the local computer, or found on a remote computer (in which case it will be referenced with a URL). 
+在\ref{ch06}中介绍的所有网络文件格式都可以导入到Cytoscape中。点击File $\rightarrow$ Import $\rightarrow$ Network (multiple file types)，在弹出的``Import Network''窗口中就可以把网络文件导入到Cytoscape中。可以是本地计算机上的网络文件，也可以是远程计算机上的（用URL）。
 
-
- \textbf{Load Networks from Local Computer}
-
-
+ \subsection{从本地计算机上导入网络}
  By default, Cytoscape loads networks from the local computer. 
-
 
  The Import Networks dialog shows a default setting of ``Data Source Type: Local,'' meaning that network files from the local computer will be available for importing. Choose the correct file by clicking on the Select button (only file types that Cytoscape recognizes will be shown), and then load the network by clicking on the Import button. Some sample network files of different types have been included in the sampleData folder in Cytoscape. 
 
+ Network files in SIF, GML, and XGMML formats may also be loaded directly from the command line using the -N option. 
+\begin{center}
+\includegraphics[wdith=\textwidth]{images/network_import_dialog1_25.png} 
+\end{center}
 
- Network files in SIF, GML, and XGMML formats may also be loaded directly from the command line using the \^aN option. 
-
-
- \includegraphics[wdith=\textwidth]{images/network_import_dialog1_25.png} 
-
-
- 
-\textbf{Load Networks from a Remote Computer (URL import)}
-
-
+\subsection{Load Networks from a Remote Computer (URL import)}
  The Import Networks dialog is also capable of importing network files using a URL. To do this, set the Data Source Type to Remote and insert the appropriate URL, either manually or using URL bookmarks. Bookmarked URLs can be accessed by clicking on the arrow to the right of the text field (see the Bookmark Manager in Preferences for more details on bookmarks). Also, you can drag and drop links from web browser to the URL text box. Once a URL has been specified, click on the Import button to load the network. 
 
-
+\begin{center}
  \includegraphics[wdith=\textwidth]{images/network_import_dialog2_25.png} 
-
+\end{center}
 
  Importing networks from URL addresses has an important caveat. Because Cytoscape determines file type primarily (not exclusively) by file extension, it can have trouble importing networks with URLs that don't end in a human readable file name. If Cytoscape does not recognize a meaningful file name and extension in the URL, it will attempt to guess the type of file based on MIME type. If the MIME type is not recognizable to any of our import handlers, then the import will fail. 
 
-
  Another issue for network import is the presence of firewalls, which can affect which files are accessible to a computer. To work around this problem, Cytoscape supports the use of proxy servers. To configure the proxy server, go to Edit $\rightarrow$ Preferences$\rightarrow$ Proxy Server... . This is further described in the Preferences chapter. 
 
-
-  
-
 \section{Import Free-Format Table Files}
-
-
  Introduced in version 2.4, Cytoscape now supports the import of networks from delimited text files and Excel workbooks using Edit $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... . An interactive GUI allows users to specify parsing options for specified files. The screen provides a preview that shows how the file will be parsed given the current configuration. As the configuration changes, the preview updates automatically. In addition to specifying how the file will be parsed, the user must also choose the columns that represent the Source nodes, the Target nodes, and an optional edge interaction type. 
 
-
+\begin{center}
  \includegraphics[wdith=\textwidth]{images/network_table_import.png} 
+\end{center}
 
-
- \textbf{Supported Files}
-
-
+\subsection{Supported Files}
  The ``Import Network from Table'' function supports delimited text files and single-sheet Microsoft Excel Workbooks. The following is a sample table file: 
-
 
  \begin{verbatim}
 source  target  interaction  boolean attribute  string attribute        floating point attribute
@@ -65,13 +47,9 @@ YER116C YDL013W pp      TRUE    abcd12372       1.2344543
 YNL307C YAL038W pp      FALSE   abcd12373       1.2344543
 YNL216W YCR012W pd      TRUE    abcd12374       1.2344543
 YNL216W YGR254W pd      TRUE    abcd12375       1.2344543
-
 \end{verbatim}
 
-
-
  The network table files should contain at least two columns: source nodes and target nodes. The interaction type is optional in this format. Therefore, a minimal network table looks like the following: 
-
 
  \begin{verbatim}
 YJR022W YNR053C
@@ -79,10 +57,7 @@ YER116C YDL013W
 YNL307C YAL038W
 YNL216W YCR012W
 YNL216W YGR254W
-
 \end{verbatim}
-
-
 
  One row in a network table file represents an edge and its edge attributes. This means that a network file is considered a combination of network data and edge attributes. A table may contain columns that aren't meant to be edge attributes. In this case, you can choose not to import those columns by clicking on the column header in the preview window. This function is useful when importing a data table like the following (1): 
 \begin{verbatim}
@@ -96,36 +71,25 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 
 \end{verbatim}
 
-
  This data file is a tab-delimited text and contains network data (interactions), edge attributes, and node attributes. To import network and edge attributes from this table, you need to choose Unique ID A as source, Unique ID B as target, and Interactor types as interaction type. Then you need to turn off columns used for node attributes (Alternative ID A, species B, etc.). Other columns can be imported as edge attributes. 
-
 
  The network import function cannot import node attributes - only edge attributes. To import node attributes from this table, please see the Attributes section of this manual. 
 
-
  Note (1): This data is taken from the \emph{A merged human interactome}
  datasets by Andrew Garrow, Yeyejide Adeleye and Guy Warner (Unilever, Safety and Environmental Assurance Center, 12 October 2006). Actual data files are available at \url{http://www.cytoscape.orghttp://cytoscape.org/cgi-bin/moin.cgi/Data}\_Sets/
-
-
  
-\textbf{Basic Operations}
-
+\subsection{Basic Operations}
 
  To import network text/Excel tables, please follow these steps: 
 \begin{enumerate}
-\item 
-
- Select File $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... 
-
+\item Select File $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... 
 \item Select a table file by clicking on the Select File button. 
 \item Define the interaction parameters by specifying which columns of data contain the Source Interaction, Target Interaction, and Interaction Type. Setting the Interaction Type as Default Interaction will result in all interactions being given the value pp; this value can be modified in Advanced Options (below). 
-\item (Optional) Define edge attribute columns, if applicable. Network table files can have edge attribute columns in addition to network data. \begin{itemize}
-\item 
-
- Enable/Disable Attribute Column - By \emph{left}
+\item (Optional) Define edge attribute columns, if applicable. Network table files can have edge attribute columns in addition to network data.
+\begin{itemize}
+\item Enable/Disable Attribute Column - By \emph{left}
 -clicking on a column header in the preview table, you can enable/disable edge attributes. If the header is checked and entries are blue, the column will be imported as an edge attribute. For example, the table below shows that columns 1 through 3 will be used as network data, column 4 will not be imported, and columns 5 and 6 will be imported as edge attributes. 
 \begin{center}
- 
 \includegraphics[wdith=\textwidth]{images/network_table_sample.png} 
 \end{center}
 
@@ -138,16 +102,14 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 \item Click the Import button. 
 \end{enumerate}
 
- \textbf{Import List of Nodes Without Edges}
-
+\subsection{Import List of Nodes Without Edges}
  Table Import feature supports list of nodes without edges. If you select source column only, it creates a network without interactions. This feature is usufl with node expansion function available from some web service clients. Please read the section \emph{Importing Networks from External Database}
  for more detail. 
 
-\textbf{Advanced Options}
-
-
+\subsection{Advanced Options}
+\begin{center}
  \includegraphics[wdith=\textwidth]{images/network_import_advanced.png} 
-
+\end{center}
 
  You can select several options by checking the Show Text File Import Options checkbox. 
 \begin{itemize}
@@ -161,8 +123,11 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
 \item Network Import Options: If the Interaction Type is set to Default Interaction, the value here will be used as the interaction type for all edges. 
 \end{itemize}
  
-\textbf{Modify Attribute Name/Type}
+\subsection{Modify Attribute Name/Type}
+
+\begin{center}
  \includegraphics[wdith=\textwidth]{images/network_table_attr_dialog1.png} 
+\end{center}
 
  Attribute names and data types can be modified here. 
 \begin{itemize}
@@ -178,12 +143,10 @@ Unique ID A     Unique ID B     Alternative ID A        Alternative ID B        
  Cytoscape has a basic data type detection function that automatically suggests the attribute data type of a column according to its entries. This can be overridden by selecting the appropriate data type from the radio buttons provided. For lists, a global delimiter must be specified (i.e., all cells in the table must use the same delimiter). 
 
 \section{Import Networks from Web Services}
-
  From version 2.6.0, Cytoscape has a new feature called \textbf{Web Service Client Manager}
 . Users can access verious kinds of databases through this function. Please read \emph{\textbf{Importing Networks and Attributes from External Database}
 }
  for more detail. 
 
 \section{Edit a New Network}
-
  A new, empty network can also be created and nodes and edges manually added. To create an empty network, go to File $\rightarrow$ New $\rightarrow$ Network $\rightarrow$ Empty Network, and then manually add network components using the Editor in CytoPanel 1 (see the Editor chapter for more details). 
