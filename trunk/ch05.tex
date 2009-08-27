@@ -21,24 +21,24 @@ SIF、GML和XGMML格式的网络文件也可以在命令行中用-N选项直接�
 \end{center}
 
 \subsection{从远程计算机上导入网络（URL导入）}
-在Import Networks中还可以使用URL导入网络文件。首先把Data Source Type设置成Remote，然后手动填写或是用书签插入合适的URL。Bookmarked URLs can be accessed by clicking on the arrow to the right of the text field (see the Bookmark Manager in Preferences for more details on bookmarks). Also, you can drag and drop links from web browser to the URL text box. Once a URL has been specified, click on the Import button to load the network. 
+在Import Networks中还可以使用URL导入网络文件。首先把Data Source Type设置成Remote，然后手动填写或是用书签插入合适的URL。点击文本域右边的箭头就能访问收藏的URL。（书签管理器的详细信息参阅Preferences中的Bookmark Manager一节。还可以把浏览器中的URL拖拽到URL文本框中。指定好URL后，点击Import按钮就能加载网络。
 
 \begin{center}
  \includegraphics[width=\textwidth]{images/network_import_dialog2_25.png} 
 \end{center}
 
- Importing networks from URL addresses has an important caveat. Because Cytoscape determines file type primarily (not exclusively) by file extension, it can have trouble importing networks with URLs that don't end in a human readable file name. If Cytoscape does not recognize a meaningful file name and extension in the URL, it will attempt to guess the type of file based on MIME type. If the MIME type is not recognizable to any of our import handlers, then the import will fail. 
+从URL地址导入网络一定要注意一点。由于Cytoscape主要（但不是完全）是根据文件的后缀来判断文件的类型，所以如果URL中的文件的后缀不合适的话，在导入网络时就有可能遇到麻烦。如果Cytoscape没能在URL识别出有意义的文件名和后缀，它就会根据MIME类型来猜测文件的类型。如果所有的导入句柄就无法识别MIME类型，导入就会失败。
 
- Another issue for network import is the presence of firewalls, which can affect which files are accessible to a computer. To work around this problem, Cytoscape supports the use of proxy servers. To configure the proxy server, go to Edit $\rightarrow$ Preferences$\rightarrow$ Proxy Server... . This is further described in the Preferences chapter. 
+在导入网络时有可能遇到的另一个问题就是防火墙，导致无法访问文件。为了解决这个问题，Cytoscape支持使用代理服务器。在 Edit $\rightarrow$ Preferences$\rightarrow$ Proxy Server...中就可以设置代理服务器。在Preference有这方面的更多信息。
 
-\section{Import Free-Format Table Files}
- Introduced in version 2.4, Cytoscape now supports the import of networks from delimited text files and Excel workbooks using Edit $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... . An interactive GUI allows users to specify parsing options for specified files. The screen provides a preview that shows how the file will be parsed given the current configuration. As the configuration changes, the preview updates automatically. In addition to specifying how the file will be parsed, the user must also choose the columns that represent the Source nodes, the Target nodes, and an optional edge interaction type. 
+\section{导入格式灵活的表格文件}
+从2.4版开始，Cytoscape就能通过Edit $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)...从文本文件和Excel文件中导入网络。在弹出的窗口中可以设置处理文件的各种选项。还能预览当前设置对文件的处理结果。修改设置时，预览窗口也会自动更新。除了设置文件的处理方法，用户还必须指定Source节点和Target节点，还可以这是边的类型。
 
 \begin{center}
  \includegraphics[width=\textwidth]{images/network_table_import.png} 
 \end{center}
 
-\subsection{Supported Files}
+\subsection{支持的文件类型}
  The ``Import Network from Table'' function supports delimited text files and single-sheet Microsoft Excel Workbooks. The following is a sample table file: 
 
  \begin{verbatim}
