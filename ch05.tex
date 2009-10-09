@@ -110,34 +110,31 @@ NotAvailable 1 1 1 1
 
 网络导入功能无法导入节点属性，只能导入边属性。关于节点属性的导入，请阅读本手册的~Attributes~一节。
 
- Note (1): This data is taken from the \emph{A merged human interactome}
- datasets by Andrew Garrow, Yeyejide Adeleye and Guy Warner (Unilever, Safety and Environmental Assurance Center, 12 October 2006). Actual data files are available at \url{http://www.cytoscape.orghttp://cytoscape.org/cgi-bin/moin.cgi/Data}\_Sets/
- 
-\subsection{Basic Operations}
 
- To import network text/Excel tables, please follow these steps: 
+注意：
 \begin{enumerate}
-\item Select File $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... 
-\item Select a table file by clicking on the Select File button. 
-\item Define the interaction parameters by specifying which columns of data contain the Source Interaction, Target Interaction, and Interaction Type. Setting the Interaction Type as Default Interaction will result in all interactions being given the value pp; this value can be modified in Advanced Options (below). 
-\item (Optional) Define edge attribute columns, if applicable. Network table files can have edge attribute columns in addition to network data.
-\begin{itemize}
-\item Enable/Disable Attribute Column - By \emph{left}
--clicking on a column header in the preview table, you can enable/disable edge attributes. If the header is checked and entries are blue, the column will be imported as an edge attribute. For example, the table below shows that columns 1 through 3 will be used as network data, column 4 will not be imported, and columns 5 and 6 will be imported as edge attributes. 
-\begin{center}
-\includegraphics[width=\textwidth]{images/network_table_sample.png} 
-\end{center}
-
-\item 
-
- Change Attribute Name and Data Types - If you \emph{right}
--click on a column header in the preview table, you can modify the attribute name and data type. For more detail, see ``Modify Attribute Name/Type'' below. 
-
-\end{itemize}
-\item Click the Import button. 
+	\item 这里的数据来自Andrew Garrow、Yeyejide Adeleye~和~Guy Warner（Unilever, Safety and Environmental Assurance Center, 2006年10月12日)的\emph{A merged human interactome}~数据集。在\url{http://www.cytoscape.orghttp://cytoscape.org/cgi-bin/moin.cgi/Data\_Sets/}上可以下载到真实的数据。
 \end{enumerate}
 
-\subsection{Import List of Nodes Without Edges}
+\subsection{基本操作}
+
+导入文本表格或Excel表格中的网络，步骤如下： 
+\begin{enumerate}
+\item 点击~File $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)... 
+\item 点击~Select File~按钮，选择一份表格。 
+\item 从表格中选择相互作用的起始点和相互作用类型。如果将相互作用的类型设置为缺省类型，则所有的相互作用的类型都会被设为pp；这个参数可以再Advanced Options中修改（下面会介绍）。
+\item （可选）如果需要的话，可以定义边属性列。在表格中，除了网络数据，还可以有一些列来表示边的属性。
+\begin{itemize}
+\item 激活或取消属性列——在预览表格中鼠标左键单击表头，就能激活或去表边的属性。如果表头及该列的内容时蓝色的，则该列将会作为边的属性导入。例如，下面表格中的第1到第3列将会作为网络数据，第4列不会导入，而第5、6两列则会作为边属性导入。
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/network_table_sample.png} 
+\end{center}
+\item 改变属性名称和数据类型——在预览表格的表头上用鼠标右键单击，就能修改属性的名称和数据类型。有关信息，详见下面的``修改属性名称和类型''。
+\end{itemize}
+\item 点击~Import按钮。 
+\end{enumerate}
+
+\subsection{导入不带边的节点列表}
  Table Import feature supports list of nodes without edges. If you select source column only, it creates a network without interactions. This feature is usufl with node expansion function available from some web service clients. Please read the section \emph{Importing Networks from External Database}
  for more detail. 
 
