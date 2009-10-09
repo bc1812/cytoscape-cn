@@ -8,7 +8,7 @@ This page will tell you how to compile the LaTeX codes from SVN code base to get
 = Details =
 
 On Windows:
-  # Install a LaTeX distribution, MikTeX is highly recommended.
+  # Install a LaTeX distribution. For Windows, MikTeX is highly recommended; for other OSs, TeX Live is a good choice.
   # Install a SVN client, TortoiseSVN is highly recommended.
   # Check out source codes, images, and other necessary files.
 {{{
