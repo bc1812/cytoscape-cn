@@ -172,14 +172,11 @@ NotAvailable 1 1 1 1
 \item List of (one of) String/Boolean/Integer/Floating Point 
 \end{itemize}
 \end{itemize}
-Cytoscape~有基本的数据类型探测功能，能自动地根据该列数据的内容推测数据的类型。
- Cytoscape has a basic data type detection function that automatically suggests the attribute data type of a column according to its entries. This can be overridden by selecting the appropriate data type from the radio buttons provided. For lists, a global delimiter must be specified (i.e., all cells in the table must use the same delimiter). 
+Cytoscape~有基本的数据类型探测功能，能自动地根据该列数据的内容推测数据的类型。不过还是可以自行选择合适的数据类型。对于list，必须要设置一个全局的分隔符（例如，表格中所有的单元格都必须使用相同的分隔符）。
 
-\section{Import Networks from Web Services}
- From version 2.6.0, Cytoscape has a new feature called \textbf{Web Service Client Manager}
-. Users can access verious kinds of databases through this function. Please read \emph{\textbf{Importing Networks and Attributes from External Database}
-}
- for more detail. 
+\section{从~Web~服务导入网络}
+从~2.6.0~开始，Cytoscape~有了一个新功能\textbf{Web Service~客户端管理器（Web Service Client Manager）}。有了这个功能，用户可以访问各种类型的数据库。
+详见\emph{\textbf{从外部数据库导入网络和属性}}。
 
-\section{Edit a New Network}
- A new, empty network can also be created and nodes and edges manually added. To create an empty network, go to File $\rightarrow$ New $\rightarrow$ Network $\rightarrow$ Empty Network, and then manually add network components using the Editor in CytoPanel 1 (see the Editor chapter for more details). 
+\section{编辑新网络}
+在Cytoscape中还可以新建空网络，然后手动地添加节点和边。点击~File $\rightarrow$ New $\rightarrow$ Network $\rightarrow$ Empty Network，然后可以用CytoPanel 1中的Editor手动的添加网络节点和边（详见Editor一章）。
