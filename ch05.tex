@@ -135,36 +135,36 @@ NotAvailable 1 1 1 1
 \end{enumerate}
 
 \subsection{导入不带边的节点列表}
- Table Import feature supports list of nodes without edges. If you select source column only, it creates a network without interactions. This feature is usufl with node expansion function available from some web service clients. Please read the section \emph{Importing Networks from External Database}
- for more detail. 
+在~Table Import~中可以导入不带边的节点列表。 如果只选择源节点列，就会创建一个没有相互作用的网络。在使用一些web服务客户端来扩展节点时，这个功能很有用。详细信息，请参阅``从外部数据库中导入网络''。
 
-\subsection{Advanced Options}
+\subsection{高级选项}
 \begin{center}
  \includegraphics[width=\textwidth]{images/network_import_advanced.png} 
 \end{center}
-
- You can select several options by checking the Show Text File Import Options checkbox. 
+选择~Show Text File Import Option~选项，可以对一些选项进行设置。
 \begin{itemize}
-\item Delimiter: You can select multiple delimiters for text tables. By default, Tab and Space are selected as delimiters. 
-\item Preview Options: When you select a network table file, the first 100 entries will be displayed in the Preview panel. To display more entries, change the value for this option. If you want to show all entries in the file, select ``Show all entries in the file''. You will need to click the Reload button to update the Preview panel. 
-\item Attribute Names \begin{itemize}
-\item Transfer first line as attribute names: Selecting this option will cause all edge attribute columns to be named according to the first data entry in that column. 
-\item Start Import Row: Set which row of the table to begin importing data from. For example, if you want to skip the first 3 rows in the file, set 4 for this option. 
-\item Comment Line: Rows starting with this character will not be imported. This option can be used to skip comment lines in text files. 
+\item 分隔符（Delimiter）：可以为文本表格选择多个分隔符。缺省情况下，分隔符是制表符和空格。
+\item 预览选项（Preview Options）：选好网络表格文件后，文件中的前一百行数据会显示在预览窗口中。修改这个选项的值，可以在预览窗口中显示更多的内容。如果要显示文件中所有的内容，选上``Show all entries in the file''即可。点击~Reload~按钮可以更新预览窗口中的内容。
+\item 属性名称（Attribute Names）
+\begin{itemize}
+\item 将第一行设为属性名称（Transfer first line as attribute names）：选上这个选项，所有的边的属性就会根据表格第一行命名。
+\item 起始导入行（Start Import Row）：设置从表格中第几行开始导入。例如，如果要忽略文件中的前三行，就可以将这个选项设为4。
+\item 注释行（Comment Line:）：以该字符开头的行将被视为注释，不会导入。这个选项可以用于跳过文件中的注释。
 \end{itemize}
-\item Network Import Options: If the Interaction Type is set to Default Interaction, the value here will be used as the interaction type for all edges. 
+\item 网络导入选项（Network Import Options）：如果相互作用的类型被设为缺省相互作用，所有边的类型就会被设为这个值。
 \end{itemize}
  
-\subsection{Modify Attribute Name/Type}
+\subsection{修改属性名称和类型}
 
 \begin{center}
  \includegraphics[width=\textwidth]{images/network_table_attr_dialog1.png} 
 \end{center}
 
- Attribute names and data types can be modified here. 
+在这里可以修改属性的名称和数据类型。
 \begin{itemize}
-\item Modify Attribute Name - just enter a new attribute name and click OK. 
-\item Modify Attribute Data Type - The following attribute data types are supported: \begin{itemize}
+\item 修改属性名称（Modify Attribute Name）：输入新的属性名称，然后点击OK即可。
+\item 修改属性数据类型（Modify Attribute Data Type）：支持以下数据类型：
+\begin{itemize}
 \item String 
 \item Boolean (True/False) 
 \item Integer 
@@ -172,6 +172,7 @@ NotAvailable 1 1 1 1
 \item List of (one of) String/Boolean/Integer/Floating Point 
 \end{itemize}
 \end{itemize}
+Cytoscape~有基本的数据类型探测功能，能自动地根据该列数据的内容推测数据的类型。
  Cytoscape has a basic data type detection function that automatically suggests the attribute data type of a column according to its entries. This can be overridden by selecting the appropriate data type from the radio buttons provided. For lists, a global delimiter must be specified (i.e., all cells in the table must use the same delimiter). 
 
 \section{Import Networks from Web Services}
