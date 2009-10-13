@@ -13,12 +13,11 @@ Cytoscape~可以读取以下格式的网络或路径文件：
 SIF~格式的文件只有节点和相互作用，而其它的格式都可以存储网络布局信息，还可以跟其它的网络软件和数据源交换数据。SIF~文件通常用于在新建网络时导入相互作用，因为用文本编辑器和电子表格软件能很方便的创建这种格式的文件。在导入了相互作用，应用了某种网络布局后，就可以将网络存为GML或XGMML格式，从而能去其它系统交换数据。所有的这些格式（Excel例外）都是文本文件，用普通的文本编辑器就能编辑和查看这些文件。
 
 
- \subsubsection{SIF~格式}
- The simple interaction format is convenient for building a graph from a list of interactions. It also makes it easy to combine different interaction sets into a larger network, or add new interactions to an existing data set. The main disadvantage is that this format does not include any layout information, forcing Cytoscape to re-compute a new layout of the network each time it is loaded. 
+\section{SIF~格式}
+这种简单的格式可以很方便地用于从相互作用列表构建网络。利用这种格式，还能很方便的把小网络组合在一起，或是在现有的数据中添加新的相互作用。但这种格式的缺点也是显而易见的，其中不包含布局信息，这使得Cytoscape不得不在每次加载网络时都重新计算网络的布局。
 
- Lines in the SIF file specify a source node, a relationship type (or edge type), and one or more target nodes: 
-
- \begin{verbatim}
+SIF~文件中的每行都由起点、相互作用类型（或边的类型）和一个或若干个重点构成。
+\begin{verbatim}
 nodeA <relationship type> nodeB
 nodeC <relationship type> nodeA
 nodeD <relationship type> nodeE nodeF nodeB
@@ -27,44 +26,26 @@ nodeG
 nodeY <relationship type> nodeZ
 \end{verbatim}
 
-
-
- A more specific example is: 
-
-
+下面是一个具体的例子：
  \begin{verbatim}
 node1 typeA node2
 node2 typeB node3 node4 node5
 node0
-
 \end{verbatim}
 
+第一行是两个节点，node1和node2，以及两点间的typeA型的相互关系。第二行加入了三个新节点，node3~、\linebreak node4~和~node5，这一行中的node2跟第一行中的node2是同一个节点。第二行还设定了三条起点相同且类型也相同的相互作用。第三行说明了如何引入孤立的节点。 This form is not needed for nodes that do have relationships, since the specification of the relationship implicitly identifies the nodes as well. 
 
-
- The first line identifies two nodes, called node1 and node2, and a single relationship between node1 and node2 of type typeA. The second line specifies three new nodes, node3, node4, and node5; here ``node2'' refers to the same node as in the first line. The second line also specifies three relationships, all of type typeB and with node2 as the source, with node3, node4, and node5 as the targets. This second form is simply shorthand for specifying multiple relationships of the same type with the same source node. The third line indicates how to specify a node that has no relationships with other nodes. This form is not needed for nodes that do have relationships, since the specification of the relationship implicitly identifies the nodes as well. 
-
-
- Duplicate entries are ignored. Multiple edges between the same nodes must have different edge types. For example, the following specifies two edges between the same pair of nodes, one of type xx and one of type yy: 
-
-
- \begin{verbatim}
+重复的条目被忽略。两个点之间的多条相互作用必须是不同的类型。例如，下面的node1和node2之间就有两条边，但类型分别是xx和yy。
+\begin{verbatim}
 node1 xx node2
 node1 xx node2
 node1 yy node2
-
 \end{verbatim}
 
-
-
- Edges connecting a node to itself (self-edges) are also allowed: 
-
-
- \begin{verbatim}
+节点的自相互作用是允许的：
+\begin{verbatim}
 node1 xx node1
-
 \end{verbatim}
-
-
 
  Every node and edge in Cytoscape has an identifying name, most commonly used with the node and edge data attribute structures. Node names must be unique, as identically named nodes will be treated as identical nodes. The name of each node will be the name in this file by default (unless another string is mapped to display on the node using the visual mapper). This is discussed in the section on visual styles. The name of each edge will be formed from the name of the source and target nodes plus the interaction type: for example, sourceName (edgeType) targetName. 
 
@@ -101,12 +82,12 @@ Whitespace (space or tab) is used to delimit the names in the simple interaction
 
  Networks in simple interactions format are often stored in files with a .sif extension, and Cytoscape recognizes this extension when browsing a directory for files of this type. 
 
-\subsubsection{GML Format}
+\section{GML Format}
  In contrast to SIF, GML is a rich graph format language supported by many other network visualization packages. The GML file format specification is available at: \url{http://www.infosun.fmi.uni-passau.de/Graphlet/GML/}
 
  It is generally not necessary to modify the content of a GML file directly. Once a network is built in SIF format and then laid out, the layout is preserved by saving to and loading from GML. Visual attributes specified in a GML file will result in a new visual style named Filename.style when that GML file is loaded. 
 
-\subsubsection{XGMML Format}
+\section{XGMML Format}
 
 
  XGMML is the XML evolution of GML and is based on the GML definition. In addition to network data, XGMML contains node/edge/network attributes. The XGMML file format specification is available at: 
@@ -119,7 +100,7 @@ Whitespace (space or tab) is used to delimit the names in the simple interaction
 
 
  
-\subsubsection*{SBML (Systems Biology Markup Language) Format}
+\section{SBML (Systems Biology Markup Language) Format}
 
 
  The Systems Biology Markup Language (SBML) is an XML format to describe biochemical networks. SBML file format specification is available at: 
@@ -129,7 +110,7 @@ Whitespace (space or tab) is used to delimit the names in the simple interaction
 
 
  
-\subsubsection*{BioPAX (Biological PAthways eXchange) Format}
+\section{BioPAX (Biological PAthways eXchange) Format}
 
 
  BioPAX is an OWL (Web Ontology Language) document designed to exchange biological pathways data. The complete set of documents for this format is available at: 
@@ -139,7 +120,7 @@ Whitespace (space or tab) is used to delimit the names in the simple interaction
 
 
  
-\subsubsection*{PSI-MI Format}
+\section{PSI-MI Format}
 
 
  The PSI-MI format is a data exchange format for protein-protein interactions. It is an XML format used to describe PPI and associated data. PSI-MI XML format specification is available at: 
@@ -149,17 +130,17 @@ Whitespace (space or tab) is used to delimit the names in the simple interaction
 
 
  
-\subsubsection*{Delimited Text Table and Excel Workbook}
+\section{Delimited Text Table and Excel Workbook}
 
 
  Cytoscape has native support for Microsoft Excel files (.xls) and delimited text files. The tables in these files can have network data and edge attributes. Users can specify columns containg source nodes, target nodes, interaction types, and edge attributes during file import. Some of the other network analysis tools, such as igraph (\url{http://cneurocvs.rmki.kfki.hu/igraph/}), has feature to export graph as simple text files. Cytoscape can read these text files and build networks from them. For more detail, please read the Import Free-Format Tables section section of the Creating Networks chapter. 
 
- \includegraphics[width=\textwidth]{images/huge_network_igraph.png} 
+\centerline{\includegraphics[width=.7\textwidth]{images/huge_network_igraph.png}}
 
  \textbf{Network generated by igraph's Watts-Strogatz small-world model (50k nodes and 250k esges) visualized by Cytoscape:}
  You can import networks created by other applications using this Table Import feature. 
  
-\subsubsection{Node Naming Issues in Cytoscape}
+\section{Node Naming Issues in Cytoscape}
 
  Typically, genes are represented by nodes, and interactions (or other biological relationships) are represented by edges between nodes. For compactness, a gene also represents its corresponding protein. Nodes may also be used to represent compounds and reactions (or anything else) instead of genes. 
 
