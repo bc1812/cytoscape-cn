@@ -69,114 +69,69 @@ Cytoscape 2.6.0及其以后的版本中有一些视觉风格的示例。通过�
 
 通过View $\rightarrow$ Open VizMapper或是点击VizMapper图标\includegraphics[width=1em]{images/VizMapIcon.png}就能启动VizMapper。此外，从2.5.0开始，在屏幕左侧的控制面板（以前称为CytoPanel 1）上有一个VizMapper的标签。
 \section{VizMapper用户界面简介}
- As of Cytoscape 2.5, the VizMapper has undergone a complete interface redesign. There are three types of components in the new VizMapper: 
+在Cytoscape 2.5中，我们重新设计了VizMapper的界面。在新的VizMapper上大三个大的组件：
 \begin{enumerate}
-\item Main Panel 
+\item 主面板，Main Panel 
 \begin{itemize}
 \item \centerline{\includegraphics[width=.4\textwidth]{images/VizMapperMainPanel.png} }
-\item This panel allows you to create/delete/view/switch between different visual styles using the Current Visual Style options. The Visual Mapping Browser at the bottom displays the mapping details for a given visual style and is used to edit these details as well. 
+\item 在这个面板中可以通过当前视觉风格选项（Current Visual Style）创建、删除、查看和切换视觉风格。底部的Visual Mapping Browser中显示了指定的视觉风格的具体映射信息，在这里也可以对映射进行编辑。
 \end{itemize}
 
-\item Default Appearance Editor \begin{itemize}
+\item 缺省外观编辑器，Default Appearance Editor \begin{itemize}
 \item \centerline{\includegraphics[width=.6\textwidth]{images/DefaultEditorPanel.png} }
-\item Clicking on the section labelled ``Defaults'' on the Main Panel will bring up this editor, which allows users to visually edit the default appearance of nodes and edges for the selected visual style. 
+\item 点击主面板中名为``Defaults''的部分，就会弹出这个编辑器，在其中可以可视化地编辑当前视觉风格中节点和边的缺省外观。
 \end{itemize}
 
-\item Continuous Editors \begin{itemize}
-\item These are editors for continuous mapping, which is a mapping from numerical value to visual attributes. They are accessed through the Visual Mapping Browser on the Main Panel. Using these windows, users can edit continuous mapping more intuitively. 
+\item 连续映射编辑器，Continuous Editors
+\begin{itemize}
+\item 这些编辑器是用于编辑连续映射的。所谓连续映射，就是将数值映射为视觉属性。通过主面板中的Visual Mapping Browser可以打开这些编辑器。在这些编辑器中可以直观的修改连续映射。
 \item Color Gradient Editor 
 \item Continuous-to-Discrete Editor 
 \item Continuous-to-Continuous Editor 
 \end{itemize}
-
 \end{enumerate}
- These editors will be discussed in further detail below. 
-\section{Introduction to Visual Styles}
-The Cytoscape distribution includes several predefined visual styles to get you started. To demonstrate these styles, try out the following example: 
+后面会再深入讨论这些编辑器。
 
-\textbf{Step 1. Load some sample data}
+\section{Introduction to Visual Styles}
+在Cytoscape中已经预设了一些视觉风格。下面这个例子将使用这些预设的视觉风格：
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{第~\theenumi~步.}
+
+\item Load some sample data
 
 \begin{itemize}
-\item 
+\item Load a sample session file: From the main menu, select \emph{\textbf{File $\rightarrow$ Open} } , and select the file \emph{sampleData/galFiltered.cys} . 
 
- Load a sample session file: From the main menu, select \emph{\textbf{File \^a Open}
-}
-, and select the file \emph{sampleData/galFiltered.cys}
-. 
+\item The session file includes a network, some annotations, and sample visual styles. By default, \textbf{galFiltered Style} is selected. Gene expression values for each node will be colored along a color gradient between red and green (where red represents a low expression ratio and green represents a high expression ratio, using thresholds set for the gal4RGexp experiment bundled with Cytoscape in the \emph{sampleData/galExpData.pvals} file). Also, node size is mapped onto the degree (number of edges connected to the node) and you can see the hubs of the network as larger nodes. See the sample screenshot below: 
 
-\item 
-
- The session file includes a network, some annotations, and sample visual styles. By default, \textbf{galFiltered Style}
- is selected. Gene expression values for each node will be colored along a color gradient between red and green (where red represents a low expression ratio and green represents a high expression ratio, using thresholds set for the gal4RGexp experiment bundled with Cytoscape in the \emph{sampleData/galExpData.pvals}
- file). Also, node size is mapped onto the degree (number of edges connected to the node) and you can see the hubs of the network as larger nodes. See the sample screenshot below: 
-
-
- \includegraphics[width=.6\textwidth]{images/galFilteredSessionDefault.png} 
-
-
+\includegraphics[width=.6\textwidth]{images/galFilteredSessionDefault.png} 
 \end{itemize}
 
-
- \textbf{Step 2. Switch between different Visual Styles}
-
-
-
+\textbf{Step 2. Switch between different Visual Styles}
  You can change visual styles by making a selection from the Current Visual Style dropdown list (found at the top of the VizMapper Main Panel). 
 
-
- For example, if you select \textbf{Sample1}
-, a new visual style will be applied to your network, and you will see a white background and round blue nodes. Additionally, if you zoom in closer, you can see that protein-DNA interactions (specified with the label ``pd'') are drawn with dashed red edges, whereas protein-protein interactions (specified with the label ``pp'') are drawn with a solid light blue edge (see sample screenshot below). 
+ For example, if you select \textbf{Sample1} , a new visual style will be applied to your network, and you will see a white background and round blue nodes. Additionally, if you zoom in closer, you can see that protein-DNA interactions (specified with the label ``pd'') are drawn with dashed red edges, whereas protein-protein interactions (specified with the label ``pp'') are drawn with a solid light blue edge (see sample screenshot below). 
 \begin{itemize}
-\item 
-
- \includegraphics[width=.6\textwidth]{images/VizMapperSample1Style26.png} 
-
-
+\item \includegraphics[width=.6\textwidth]{images/VizMapperSample1Style26.png} 
 \end{itemize}
 
-
- Finally, if you select \textbf{Solid}
-, you can see the graphics below: 
+ Finally, if you select \textbf{Solid} , you can see the graphics below: 
 \begin{itemize}
-\item 
-
- \includegraphics[width=.6\textwidth]{images/VizMapperSolidStyle.png} 
-
-
+\item \includegraphics[width=.6\textwidth]{images/VizMapperSolidStyle.png} 
 \end{itemize}
+\end{enumerate}
+ This Visual Style does not have mappings except node/edge labels, but you can modify the network graphics by editing \emph{Default View}. 
 
-
- This Visual Style does not have mappings except node/edge labels, but you can modify the network graphics by editing \emph{Default View}
-. 
-
-
- Additional sample styles are available as \emph{sampleStyles.props}
- file in the \emph{SampleData}
- directory. You can import the sample file from \emph{\textbf{File \^a Import \^a Vizmap Property File}
-}
-. 
-
-
+ Additional sample styles are available as \emph{sampleStyles.props} file in the \emph{SampleData} directory. You can import the sample file from \emph{\textbf{File \^a Import \^a Vizmap Property File} }. 
  
-\section*{Visual Attributes, Graph Attributes and Visual Mappers}
-
-
+\section{Visual Attributes, Graph Attributes and Visual Mappers}
  The Cytoscape VizMapper uses three core concepts: 
 \begin{itemize}
-\item 
+\item A \emph{visual attribute} is any visual setting that can be applied to your network. For example, you can change all nodes from circles to squares by changing the node shape visual attribute. 
+\item A \emph{network attribute} is any data attribute associated with a node or an edge. For example, each edge in a network may be associated with a label, such as \^apd\^a (protein-DNA interactions), or \^app\^a (protein-protein interactions). 
 
- A \emph{visual attribute}
- is any visual setting that can be applied to your network. For example, you can change all nodes from circles to squares by changing the node shape visual attribute. 
-
-\item 
-
- A \emph{network attribute}
- is any data attribute associated with a node or an edge. For example, each edge in a network may be associated with a label, such as \^apd\^a (protein-DNA interactions), or \^app\^a (protein-protein interactions). 
-
-\item 
-
-A \emph{visual mapper}
- maps network attributes to visual attributes. For example, a visual mapper can map all protein-DNA interactions to the color blue, and all protein-protein interactions to the color red. 
+\item A \emph{visual mapper} maps network attributes to visual attributes. For example, a visual mapper can map all protein-DNA interactions to the color blue, and all protein-protein interactions to the color red. 
 \end{itemize}
 Cytoscape allows a wide variety of visual attributes to be controlled. These are summarized in the tables below. 
 
