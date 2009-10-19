@@ -47,36 +47,32 @@ node1 yy node2
 node1 xx node1
 \end{verbatim}
 
- Every node and edge in Cytoscape has an identifying name, most commonly used with the node and edge data attribute structures. Node names must be unique, as identically named nodes will be treated as identical nodes. The name of each node will be the name in this file by default (unless another string is mapped to display on the node using the visual mapper). This is discussed in the section on visual styles. The name of each edge will be formed from the name of the source and target nodes plus the interaction type: for example, sourceName (edgeType) targetName. 
+Cytoscape中每个点和每条边都有标识符，通常在节点和边的属性数据中都有。节点的名称必须是独一无二的，名称相同的节点会被视为同一个节点。节点的名称缺省情况下就是文件中的名称，除非用Visual Mapper映射到了其他字符串。详见``视觉风格''一章。边的名称则是由边的起点和终点，加上相互作用的类型构成的，例如：sourceName (edgeType) targetName。
 
 
- The tag $<$relationship type$>$ can be any string. Whole words or concatenated words may be used to define types of relationships, e.g. geneFusion, cogInference, pullsDown, activates, degrades, inactivates, inhibits, phosphorylates, upRegulates, etc. 
+$<$relationship type$>$标签可以是任何字符串。完整的单词或是单词的组合都可以用来定义相互作用的类型，例如：geneFusion、cogInference、pullsDown、activates、degrades、inactivates、inhibits、phosphorylates、upRegulates等等。 
+
+在系统生物学领域，常见的相互作用类型有：
+\begin{enumerate}
+\item  pp .................. protein -> protein interaction
+\item  pd .................. protein -> DNA   
+  (例如，转录因子跟调控基因的上游结合。)
+\end{enumerate}
+
+还有一些相对少见的相互作用类型：
+\begin{enumerate}
+\item  pr .................. protein -> reaction
+\item  rc .................. reaction -> compound
+\item  cr .................. compound -> reaction
+\item  gl .................. genetic lethal relationship
+\item  pm .................. protein-metabolite interaction
+\item  mp .................. metabolite-protein interaction
+\end{enumerate}
 
 
- Some common interaction types used in the Systems Biology community are as follows: 
-\begin{verbatim}
-  pp .................. protein â protein interaction
-  pd .................. protein -> DNA   
-  (e.g. transcription factor binding upstream of a regulating gene.)
+\textbf{分隔符}
 
-\end{verbatim}
-
-
- Some less common interaction types used are: 
-\begin{verbatim}
-  pr .................. protein -> reaction
-  rc .................. reaction -> compound
-  cr .................. compound -> reaction
-  gl .................. genetic lethal relationship
-  pm .................. protein-metabolite interaction
-  mp .................. metabolite-protein interaction
-
-\end{verbatim}
-
-
-\textbf{Delimiters}
-
-Whitespace (space or tab) is used to delimit the names in the simple interaction file format. However, in some cases spaces are desired in a node name or edge type. The standard is that, if the file contains any tab characters, then tabs are used to delimit the fields and spaces are considered part of the name. If the file contains no tabs, then any spaces are delimiters that separate names (and names cannot contain spaces). 
+在简单的相互作用文件格式中，空白（空格或制表符）用来分割名称。但在有些情况，节点名称或是边的类型中会含有空格。Cytoscape对分隔符的处理原则是这样的：如果文件中有制表符，那么就用制表符分割不同的字段，而空格则被视为字段中的内容。如果文件中没有制表符，那么所有的空格就都是分隔符（也就是中字段中不会有空格）。
 
  If your network unexpectedly contains no edges and node names that look like edge names, it probably means your file contains a stray tab that's fooling the parser. On the other hand, if your network has nodes whose names are half of a full name, then you probably meant to use tabs to separate node names with spaces. 
 
