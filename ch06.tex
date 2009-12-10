@@ -74,35 +74,22 @@ $<$relationship type$>$标签可以是任何字符串。完整的单词或是单
 
 在简单的相互作用文件格式中，空白（空格或制表符）用来分割名称。但在有些情况，节点名称或是边的类型中会含有空格。Cytoscape对分隔符的处理原则是这样的：如果文件中有制表符，那么就用制表符分割不同的字段，而空格则被视为字段中的内容。如果文件中没有制表符，那么所有的空格就都是分隔符（也就是中字段中不会有空格）。
 
- If your network unexpectedly contains no edges and node names that look like edge names, it probably means your file contains a stray tab that's fooling the parser. On the other hand, if your network has nodes whose names are half of a full name, then you probably meant to use tabs to separate node names with spaces. 
+如果在导入网路后，发现网络中没有边，而且点的名称也有问题，那很有可能是因为文件中存在制表符，使得Cytoscape在导入网络时判断错误。另一方面，如果网络中节点的名称只是正确名称的一部分，那就很有可能是错误地将空格作为了分隔符，实际上应该用制表符。
 
- Networks in simple interactions format are often stored in files with a .sif extension, and Cytoscape recognizes this extension when browsing a directory for files of this type. 
+用简单的相互作用的形式存放网络的文件的后缀是.sif，Cytoscape能识别出文件夹中所含有的这类文件。
 
-\section{GML Format}
- In contrast to SIF, GML is a rich graph format language supported by many other network visualization packages. The GML file format specification is available at: \url{http://www.infosun.fmi.uni-passau.de/Graphlet/GML/}
+\section{GML~格式}
+跟SIF格式不同，GML是一种富图格式语言（rich graph format language），很多网络可视化软件包都支持这种格式。在\url{http://www.infosun.fmi.uni-passau.de/Graphlet/GML/}上可以找到该格式的具体说明。
 
- It is generally not necessary to modify the content of a GML file directly. Once a network is built in SIF format and then laid out, the layout is preserved by saving to and loading from GML. Visual attributes specified in a GML file will result in a new visual style named Filename.style when that GML file is loaded. 
+通常都不必直接修改GML文件的内容。当SIF格式的网络导入并实施布局后，就可以以GML的形式保存和加载网络。GML文件中的视觉风格在加载GML文件后，会保存为名为Filename.style的视觉风格。
 
-\section{XGMML Format}
+\section{XGMML~格式}
+XGMML是GML的XML扩展版，它是基于GML定义的。除了网络数据，XGMML还包含节点、边和网络的属性。XGMML文件的规范在\url{http://www.cs.rpi.edu/~puninj/XGMML/}上。
 
+由于XGMML继承了XML文件的灵活性，所以XGMML比GML更受欢迎。如果不确定应该用哪种格式，那就选择XGMML吧。
 
- XGMML is the XML evolution of GML and is based on the GML definition. In addition to network data, XGMML contains node/edge/network attributes. The XGMML file format specification is available at: 
-
-
- \url{http://www.cs.rpi.edu/~puninj/XGMML/}
-
-
- XGMML is now preferred to GML because it offers the flexibility associated with all XML document types. If you're unsure about which to use, choose XGMML. 
-
-
- 
-\section{SBML (Systems Biology Markup Language) Format}
-
-
- The Systems Biology Markup Language (SBML) is an XML format to describe biochemical networks. SBML file format specification is available at: 
-
-
- \url{http://sbml.org/documents/}
+\section{SBML（Systems Biology Markup Language）格式}
+The Systems Biology Markup Language (SBML) is an XML format to describe biochemical networks. SBML file format specification is available at: \url{http://sbml.org/documents/}
 
 
  
