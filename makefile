@@ -1,2 +1,2 @@
 all:*.tex
-	pdflatex cytoscape_manual.tex
+	pdflatex Cytoscape_manual.tex

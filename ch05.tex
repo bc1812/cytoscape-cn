@@ -17,14 +17,14 @@
 SIF、GML和XGMML格式的网络文件也可以在命令行中用-N选项直接导入。
 
 \begin{center}
-\includegraphics[width=\textwidth]{images/network_import_dialog1_25.png} 
+\includegraphics[width=.6\textwidth]{images/network_import_dialog1_25.png} 
 \end{center}
 
 \subsection{从远程计算机上导入网络（URL导入）}
 在Import Networks中还可以使用URL导入网络文件。首先把Data Source Type设置成Remote，然后手动填写或是用书签插入合适的URL。点击文本域右边的箭头就能访问收藏的URL。（书签管理器的详细信息参阅Preferences中的Bookmark Manager一节。还可以把浏览器中的URL拖拽到URL文本框中。指定好URL后，点击Import按钮就能加载网络。
 
 \begin{center}
- \includegraphics[width=\textwidth]{images/network_import_dialog2_25.png} 
+ \includegraphics[width=.6\textwidth]{images/network_import_dialog2_25.png} 
 \end{center}
 
 从URL地址导入网络一定要注意一点。由于Cytoscape主要（但不是完全）是根据文件的后缀来判断文件的类型，所以如果URL中的文件的后缀不合适的话，在导入网络时就有可能遇到麻烦。如果Cytoscape没能在URL识别出有意义的文件名和后缀，它就会根据MIME类型来猜测文件的类型。如果所有的导入句柄就无法识别MIME类型，导入就会失败。
@@ -32,10 +32,11 @@ SIF、GML和XGMML格式的网络文件也可以在命令行中用-N选项直接�
 在导入网络时有可能遇到的另一个问题就是防火墙，导致无法访问文件。为了解决这个问题，Cytoscape支持使用代理服务器。在 Edit $\rightarrow$ Preferences$\rightarrow$ Proxy Server...中就可以设置代理服务器。在Preference有这方面的更多信息。
 
 \section{导入格式灵活的表格文件}
+\label{free-format table}
 从2.4版开始，Cytoscape就能通过Edit $\rightarrow$ Import $\rightarrow$ Network from Table (Text/MS Excel)...从文本文件和Excel文件中导入网络。在弹出的窗口中可以设置处理文件的各种选项。还能预览当前设置对文件的处理结果。修改设置时，预览窗口也会自动更新。除了设置文件的处理方法，用户还必须指定Source节点和Target节点，还可以这是边的类型。
 
 \begin{center}
- \includegraphics[width=\textwidth]{images/network_table_import.png} 
+ \includegraphics[width=.8\textwidth]{images/network_table_import.png} 
 \end{center}
 
 \subsection{支持的文件类型}
@@ -43,7 +44,7 @@ SIF、GML和XGMML格式的网络文件也可以在命令行中用-N选项直接�
 
 \medskip
 
-{\tiny
+{\center\tiny
 \begin{tabular}{cccccc}
 source  &target&  interaction&  boolean attribute&  string attribute&        floating point attribute\\
 YJR022W &YNR053C &pp     & TRUE  &  abcd12371    &   1.2344543\\
@@ -139,7 +140,7 @@ NotAvailable 1 1 1 1
 
 \subsection{高级选项}
 \begin{center}
- \includegraphics[width=\textwidth]{images/network_import_advanced.png} 
+ \includegraphics[width=.8\textwidth]{images/network_import_advanced.png} 
 \end{center}
 选择~Show Text File Import Option~选项，可以对一些选项进行设置。
 \begin{itemize}
@@ -157,7 +158,7 @@ NotAvailable 1 1 1 1
 \subsection{修改属性名称和类型}
 
 \begin{center}
- \includegraphics[width=\textwidth]{images/network_table_attr_dialog1.png} 
+ \includegraphics[width=.6\textwidth]{images/network_table_attr_dialog1.png} 
 \end{center}
 
 在这里可以修改属性的名称和数据类型。
