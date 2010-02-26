@@ -115,57 +115,33 @@ Cytoscape~为微软的Excel文件（.xls）和纯文本表格提供了原生支�
 为了紧凑，基因也可以表示成响应的蛋白质。节点还可以用来表示化合物和生化反应等各种
 东西，并不局限于基因。
 
-如果想要将基因或蛋白跟GO注释或基因表达数据整合在一起，那各个数据文件中的基因名称
-必须完全一致。
-If a network of genes or proteins is to be integrated with Gene Ontology (GO)
-annotation or gene expression data, the gene names must exactly match the names
-specified in the other data files. We strongly encourage naming genes and
-proteins by their systematic ORF name or standard accession number; common
-names may be displayed on the screen for ease of interpretation, so long as
-these are available to the program in the annotation directory or in a node
-attribute file. Cytoscape ships with all yeast ORF-to-common name mappings in a
-synonym table within the annotation/ directory. Other organisms will be
-supported in the future. 
+如果想要将网络中的基因或蛋白跟GO注释或基因表达数据整合在一起，那各个数据文件中的基因名称
+必须完全一致。我们强烈建议用户用ORF系统名称或是标准的获取编号（accession number）来命名
+基因和蛋白质。而常用名称（common name）由于更适合显示在屏幕上，所以可以将其存放在注释目录或
+节点的属性文件中。Cytoscape的annotation/目录中中有酵母的ORF到常用名称的对应文件。将来会逐步
+地支持其它物种。
 
- Why do we recommend using standard gene names? All of the external data
-formats recognized by Cytoscape provide data associated with particular names
-of particular objects. For example, a network of protein-protein interactions
-would list the names of the proteins, and the attribute and expression data
-would likewise be indexed by the name of the object. 
+为什么要建议使用标准的基因名称？所有~Cytoscape~能识别的外部数据格式都有专门的命名方式。例如，
+蛋白质相互作用网络会列出蛋白质的名称，相应的属性和表达数据也使用同样的命名方法。
 
- The problem is in connecting data from different data sources that don't
-necessarily use the same name for the same object. For example, genes are
-commonly referred to by different names, including a formal ``location on the
-chromosome'' identifier and one or more common names that are used by ordinary
-researchers when talking about that gene. Additionally, database identifiers
-from every database where the gene is stored may be used to refer to a gene
-(e.g. protein accession numbers from Swiss-Prot). If one data source uses the
-formal name while a different data source used a common name or identifier,
-then Cytoscape must figure out that these two different names really refer to
-the same biological entity. 
+但如果要把不用来源的数据结合在一起，问题就出现了：对于同一个东西，不同的数据源的命名可能
+是不一样的。例如，基因就可以有多个不同的名称，包括正式的``染色体位置''标识符，研究人员讨论
+时常用的若干个名称。此外，每个数据库可能还会有自己的一套给基因编号的方法（例如Swiss-Prot的
+蛋白质编号）。如果一个数据源使用的是正式名称，而另一个数据使用的是常用名称，那Cytoscape就必须
+要知道哪两个名称指的是同一个基因。
 
- Cytoscape has two strategies for dealing with this naming issue, one simple
-and one more complex. The simple strategy is to assume that every data source
-uses the same set of names for every object. If this is the case, then
-Cytoscape can easily connect all of the different data sources. 
+有两种方法来解决这个问题，一个较简单，另一个稍微复杂一些。简单的方法就是假设所有的数据源使用同样
+的命名方法。如果是这样，Cytoscape就能很方便的将来自不同数据源的数据结合在一起。
 
- To handle data sources with different sets of names, as is usually the case
-when manually integrating gene information from different sources, Cytoscape
-needs a data server that provides synonym information (see the chapter on
-Annotation). A synonym table gives a canonical name for each object in a given
-organism and one or more recognized synonyms for that object. Note that the
-synonym table itself defines which set of names are the ``canonical'' names.
-For example, in budding yeast, the ORF names are commonly used as the canonical
-names. 
+跟人工整合不同来源的数据一样，为了处理不同命名方式的数据，Cytoscape需要同义词信息（见``注释
+''一章）。同义词表提供了某个物种的每个对象的权威名称，以及相应的其它可以识别的名称。要注意，同义词表
+自身的数据就是按照这个``权威''名称命名的。例如，在酵母中，通常用ORF名称作为这个``权威''名称。
 
- If a synonym server is available, then by default Cytoscape will convert every
-name that appears in a data file to the associated canonical name. Unrecognized
-names will not be changed. This conversion of names to a common set allows
-Cytoscape to connect the genes present in different data sources, even if they
-have different names -- long as those names are recognized by the
-synonym server. 
+如果能提供这样信息，Cytoscape在缺省情况下会将所有的名称都转换成相应的权威名称。而不能识别的名称
+则保持不变。这样Cytoscape就能将不同来源的数据结合在一起，即使它们的名称不同也没关系---只要能在同义词
+表中找到就行。
 
- For this to work, Cytoscape must also be provided with the species to which
+For this to work, Cytoscape must also be provided with the species to which
 the objects belong, since the data server requires the species in order to
 uniquely identify the object referred to by a particular name. This is usually
 done in Cytoscape by specifying the species name on the command line with the
@@ -173,7 +149,7 @@ done in Cytoscape by specifying the species name on the command line with the
 cerevisiae'') or by editing the properties (under Edit $\rightarrow$ Preferences
 $\rightarrow$ Properties\ldots). 
 
- The automatic canonicalization of names can be turned off using the -P option
+The automatic canonicalization of names can be turned off using the -P option
 (cytoscape.sh -P ``canonicalizeName=false'') or by editing the properties (under
 Edit $\rightarrow$ Preferences $\rightarrow$ Properties\ldots). This canonicalization
 of names currently does not apply to expression data. Expression data should
