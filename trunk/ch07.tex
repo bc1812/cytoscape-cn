@@ -1,7 +1,24 @@
-Interaction networks are useful as stand-alone models. However, they are most powerful for answering scientific questions when integrated with additional information. Cytoscape allows the user to add arbitrary node, edge and network information to Cytoscape as node/edge/network attributes. This could include, for example, annotation data on a gene or confidence values in a protein-protein interaction. These attributes can then be visualized in a user-defined way by setting up a mapping from data attributes to visual attributes (colors, shapes, and so on). The section on  visual styles discusses this in greater detail. 
+单独的相互作用网络也是很有用的模型，但是，如果能跟其它信息整合在一起，则能回答更多的科学疑问。
+
+
+Interaction networks are useful as stand-alone models. However, they are most
+powerful for answering scientific questions when integrated with additional
+information. Cytoscape allows the user to add arbitrary node, edge and network
+information to Cytoscape as node/edge/network attributes. This could include,
+for example, annotation data on a gene or confidence values in a
+protein-protein interaction. These attributes can then be visualized in a
+user-defined way by setting up a mapping from data attributes to visual
+attributes (colors, shapes, and so on). The section on  visual styles discusses
+this in greater detail. 
 
 \subsubsection{Cytoscape~属性文件格式}
- Node and edge attribute files are simply formatted: a node attribute file begins with the name of the attribute on the first line (note that it cannot contain spaces). Each following line contains the name of the node, followed by an equals sign and the value of that attribute. Numbers and text strings are the most common attribute types. All values for a given attribute must have the same type. For example: 
+
+ Node and edge attribute files are simply formatted: a node attribute file
+begins with the name of the attribute on the first line (note that it cannot
+contain spaces). Each following line contains the name of the node, followed by
+an equals sign and the value of that attribute. Numbers and text strings are
+the most common attribute types. All values for a given attribute must have the
+same type. For example: 
 
  \begin{verbatim}
 FunctionalCategory
@@ -10,7 +27,11 @@ YAR002W = apoptosis
 YBL007C = ribosome
 \end{verbatim}
 
- An edge attribute file has much the same structure, except that the name of the edge is the source node name, followed by the interaction type in parentheses, followed by the target node name. Directionality counts, so switching the source and target will refer to a different (or perhaps non-existent) edge. The following is an example edge attributes file: 
+ An edge attribute file has much the same structure, except that the name of
+the edge is the source node name, followed by the interaction type in
+parentheses, followed by the target node name. Directionality counts, so
+switching the source and target will refer to a different (or perhaps
+non-existent) edge. The following is an example edge attributes file: 
 
  \begin{verbatim}
 InteractionStrength
@@ -19,27 +40,55 @@ YMR022W (pd) YDL112C = 0.441
 YDL112C (pd) YMR022W = 0.9013
 \end{verbatim}
 
- Since Cytoscape treats edge attributes as directional, the second and third edge attribute values refer to two different edges (source and target are reversed, though the nodes involved are the same). 
+ Since Cytoscape treats edge attributes as directional, the second and third
+edge attribute values refer to two different edges (source and target are
+reversed, though the nodes involved are the same). 
 
- Each attribute is stored in a separate file. Node and edge attribute files use the same format. Node attribute file names often use the suffix ``.noa'', while edge attribute file names use the suffix ``.eda''. Cytoscape recognizes these suffixes when browsing for attribute files. 
+ Each attribute is stored in a separate file. Node and edge attribute files use
+the same format. Node attribute file names often use the suffix ``.noa'', while
+edge attribute file names use the suffix ``.eda''. Cytoscape recognizes these
+suffixes when browsing for attribute files. 
 
- Node and edge attributes may be loaded at the command line using the -n and -e options or via the File $\rightarrow$ Import menu. 
+ Node and edge attributes may be loaded at the command line using the -n and -e
+options or via the File $\rightarrow$ Import menu. 
 
- When expression data is loaded using an expression matrix, it is automatically loaded as node attribute data unless explicitly specified otherwise. 
+ When expression data is loaded using an expression matrix, it is automatically
+loaded as node attribute data unless explicitly specified otherwise. 
 
- Node and edge attributes are attached to nodes and edges, and so are independent of networks. Attributes for a given node or edge will be applied to all copies of that node or edge in all loaded network files, regardless of whether the attribute file or network file is imported first. 
 
- Note: In order to import network attributes in Cytoscape 2.4, please go to File $\rightarrow$ Import $\rightarrow$ Attribute from Table (text/MS Excel)... or encode them in an XGMML network file (see Supported File Formats for more details). 
+
+ Node and edge attributes are attached to nodes and edges, and so are
+independent of networks. Attributes for a given node or edge will be applied to
+all copies of that node or edge in all loaded network files, regardless of
+whether the attribute file or network file is imported first. 
+
+ Note: In order to import network attributes in Cytoscape 2.4, please go to
+File $\rightarrow$ Import $\rightarrow$ Attribute from Table (text/MS Excel)...
+or encode them in an XGMML network file (see Supported File Formats for more
+details). 
 
  \textbf{Detailed file format (Advanced users)}
 
- Every attribute file has one header line that gives the name of the attribute, and optionally some additional meta-information about that attribute. The format is as follows: 
+ Every attribute file has one header line that gives the name of the attribute,
+and optionally some additional meta-information about that attribute. The
+format is as follows: 
 
  \begin{verbatim}
 attributeName (class=formal.class.of.value)
 \end{verbatim}
 
- The first field is always the attribute name: it cannot contain spaces. If present, the class field defines the formal (package qualified) name of the class of the attribute values. For example, java.lang.String for Strings, java.lang.Double for floating point values, java.lang.Integer for integer values, etc. If the value is actually a list of values, the class should be the type of the objects in the list. If no class is specified in the header line, Cytoscape will attempt to guess the type from the first value. If the first value contains numbers in a floating point format, Cytoscape will assume java.lang.Double; if the first value contains only numbers with no decimal point, Cytoscape will assume java.lang.Integer; otherwise Cytoscape will assume java.lang.String. Note that the first value can lead Cytoscape astray: for example, 
+ The first field is always the attribute name: it cannot contain spaces. If
+present, the class field defines the formal (package qualified) name of the
+class of the attribute values. For example, java.lang.String for Strings,
+java.lang.Double for floating point values, java.lang.Integer for integer
+values, etc. If the value is actually a list of values, the class should be the
+type of the objects in the list. If no class is specified in the header line,
+Cytoscape will attempt to guess the type from the first value. If the first
+value contains numbers in a floating point format, Cytoscape will assume
+java.lang.Double; if the first value contains only numbers with no decimal
+point, Cytoscape will assume java.lang.Integer; otherwise Cytoscape will assume
+java.lang.String. Note that the first value can lead Cytoscape astray: for
+example, 
 
  \begin{verbatim}
 floatingPointAttribute
@@ -47,7 +96,10 @@ firstName = 1
 secondName = 2.5
 \end{verbatim}
 
- In this case, the first value will make Cytoscape think the values should be integers, when in fact they should be floating point numbers. It's safest to explicitly specify the value type to prevent confusion. A better format would be: 
+ In this case, the first value will make Cytoscape think the values should be
+integers, when in fact they should be floating point numbers. It's safest to
+explicitly specify the value type to prevent confusion. A better format would
+be: 
 
 
  \begin{verbatim}
@@ -64,7 +116,16 @@ firstName = 1.0
 secondName = 2.5
 \end{verbatim}
 
- Every line past the first line identifies the name of an object (a node in a node attribute file or an edge in a edge attribute file) along with the String representation of the attribute value. The delimiter is always an equals sign; whitespace (spaces and/or tabs) before and after the equals sign is ignored. This means that your names and values can contain whitespace, but object names cannot contain an equals sign and no guarantees are made concerning leading or trailing whitespace. Object names must be the Node ID or Edge ID as seen in the left-most column of the attribute browser if the attribute is to map to anything. These names must be reproduced exactly, including case, or they will not match. 
+ Every line past the first line identifies the name of an object (a node in a
+node attribute file or an edge in a edge attribute file) along with the String
+representation of the attribute value. The delimiter is always an equals sign;
+whitespace (spaces and/or tabs) before and after the equals sign is ignored.
+This means that your names and values can contain whitespace, but object names
+cannot contain an equals sign and no guarantees are made concerning leading or
+trailing whitespace. Object names must be the Node ID or Edge ID as seen in the
+left-most column of the attribute browser if the attribute is to map to
+anything. These names must be reproduced exactly, including case, or they will
+not match. 
 
 Edge names are all of the form: 
 
@@ -82,7 +143,11 @@ sourceName (edgeType) targetName
  \hline 
 \end{tabular}
 
- Note that tabs are not allowed in edge names. Tabs can be used to separate the edge name from the ``='' delimiter, but not within the edge name itself. Also note that this format is different from the specification of interactions in the SIF file format. To be explicit: a SIF entry for the previous interaction would look like 
+ Note that tabs are not allowed in edge names. Tabs can be used to separate the
+edge name from the ``='' delimiter, but not within the edge name itself. Also
+note that this format is different from the specification of interactions in
+the SIF file format. To be explicit: a SIF entry for the previous interaction
+would look like 
 
  \begin{verbatim}
 sourceName edgeType targetName
@@ -105,14 +170,19 @@ firstObjectName = (firstValue::secondValue::thirdValue)
 secondObjectName = (onlyOneValue)
 \end{verbatim}
 
- This example shows an attribute whose value is defined as a list of text strings. The first object has three strings, and thus three elements in its list, while the second object has a list with only one element. In the case of a list every attribute value uses list syntax (i.e. parentheses), and each element is of the same class. Again, the class will be inferred if it is not specified in the header line. Lists are not supported by the visual mapper and so can\^at be mapped to visual attributes. 
+ This example shows an attribute whose value is defined as a list of text
+strings. The first object has three strings, and thus three elements in its
+list, while the second object has a list with only one element. In the case of
+a list every attribute value uses list syntax (i.e. parentheses), and each
+element is of the same class. Again, the class will be inferred if it is not
+specified in the header line. Lists are not supported by the visual mapper and
+so can\^at be mapped to visual attributes. 
 
-
- 
 \textbf{Newline Feature}
 
-
- Sometimes it is desirable to for attributes to include linebreaks, such as node labels that extend over two lines. You can acomplish by inserting   into the attribute value. For example: 
+Sometimes it is desirable to for attributes to include linebreaks, such as node
+labels that extend over two lines. You can acomplish by inserting   into the
+attribute value. For example: 
 
  \begin{verbatim}
 newlineAttr
@@ -121,19 +191,16 @@ YJL157C = This is a long\nline for a label.
 
 \subsubsection{导入属性表格文件}
 
- As of Cytoscape 2.4, importing delimited text and MS Excel attribute data tables is now supported. Using this functionality, users can now easily import data that isn't formatted into Cytoscape node or edge attribute file formats (as described above). 
+ As of Cytoscape 2.4, importing delimited text and MS Excel attribute data
+tables is now supported. Using this functionality, users can now easily import
+data that isn't formatted into Cytoscape node or edge attribute file formats
+(as described above). 
 
  \includegraphics[scale=1]{images/attribute_table_import_main.png} 
 
-
- \emph{\textbf{Sample Attribute Table 1}
-}
-
-
+ \emph{\textbf{Sample Attribute Table 1} }
 
  \textbf{Table\^A 12.\^A }
-
-
 
 \begin{tabular}{|c|c|c|c|}
 \hline 
