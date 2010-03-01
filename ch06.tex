@@ -141,17 +141,12 @@ Cytoscape~为微软的Excel文件（.xls）和纯文本表格提供了原生支�
 则保持不变。这样Cytoscape就能将不同来源的数据结合在一起，即使它们的名称不同也没关系---只要能在同义词
 表中找到就行。
 
-For this to work, Cytoscape must also be provided with the species to which
-the objects belong, since the data server requires the species in order to
-uniquely identify the object referred to by a particular name. This is usually
-done in Cytoscape by specifying the species name on the command line with the
--P option (cytoscape.sh -P ``defaultSpeciesName=Saccharomyces
-cerevisiae'') or by editing the properties (under Edit $\rightarrow$ Preferences
-$\rightarrow$ Properties\ldots). 
+除了上面的数据，还需告诉Cytoscape各个对象所属的物种，因为数据服务器需要物种信息才能找到
+相应的名称。通过Cytoscape的命令行选项-P（cytoscape.sh -P ``defaultSpeciesName=Saccharomyces
+cerevisiae''）， 或是编辑网络的属性（Edit $\rightarrow$ Preferences
+$\rightarrow$ Properties\ldots）都可以设定网络的物种。 
 
-The automatic canonicalization of names can be turned off using the -P option
-(cytoscape.sh -P ``canonicalizeName=false'') or by editing the properties (under
-Edit $\rightarrow$ Preferences $\rightarrow$ Properties\ldots). This canonicalization
-of names currently does not apply to expression data. Expression data should
-use the same names as the other data sources or use the canonical names as
-defined by the synonym table. 
+通过-P选项（cytoscape.sh -P ``canonicalizeName=false''）或是编辑属性（Edit
+$\rightarrow$ Preferences $\rightarrow$
+Properties\ldots）以关闭名称的自动映射。
+在当前的版本中，名称映射对基因表达数据无效。基因表达数据应该使用跟其它数据源相同的命名方式，伙食使用同义词表中的权威名称。
