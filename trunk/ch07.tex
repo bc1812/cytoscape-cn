@@ -1,24 +1,7 @@
-单独的相互作用网络也是很有用的模型，但是，如果能跟其它信息整合在一起，则能回答更多的科学疑问。
-
-
-Interaction networks are useful as stand-alone models. However, they are most
-powerful for answering scientific questions when integrated with additional
-information. Cytoscape allows the user to add arbitrary node, edge and network
-information to Cytoscape as node/edge/network attributes. This could include,
-for example, annotation data on a gene or confidence values in a
-protein-protein interaction. These attributes can then be visualized in a
-user-defined way by setting up a mapping from data attributes to visual
-attributes (colors, shapes, and so on). The section on  visual styles discusses
-this in greater detail. 
+相互作用网络是很有用的模型，但是，如果能跟其它信息整合在一起，则能解答更多的科学疑问。在Cytoscape中，用户可以给节点、边或网络添加各种属性。例如，可以是基因的注释数据或蛋白质相互作用的可信度。这些属性可以按着用户的设置映射到可视化属性上（颜色、形状等等）。本节会详细介绍视觉风格。
 
 \subsubsection{Cytoscape~属性文件格式}
-
- Node and edge attribute files are simply formatted: a node attribute file
-begins with the name of the attribute on the first line (note that it cannot
-contain spaces). Each following line contains the name of the node, followed by
-an equals sign and the value of that attribute. Numbers and text strings are
-the most common attribute types. All values for a given attribute must have the
-same type. For example: 
+节点和边的属性文件的格式非常简单：节点属性文件的第一行是属性的名称（注意，属性名称中不能有空格）。接下来的每一行首先是节点的名称，然后是等号，以及属性的值。最常见的属性类型是数字和字符串。同一个属性的所有值都必须是同一类型的。例如：
 
  \begin{verbatim}
 FunctionalCategory
@@ -27,11 +10,7 @@ YAR002W = apoptosis
 YBL007C = ribosome
 \end{verbatim}
 
- An edge attribute file has much the same structure, except that the name of
-the edge is the source node name, followed by the interaction type in
-parentheses, followed by the target node name. Directionality counts, so
-switching the source and target will refer to a different (or perhaps
-non-existent) edge. The following is an example edge attributes file: 
+边的属性文件也类似，不同的是边的名称是由起点名称，加上括号中的边的类型，然后是重点名称构成的。边是有方向性的，所以交换起点和终点的位置会被认为是不同的边（有可能是不存在的）。下面就是一个边属性文件的例子：
 
  \begin{verbatim}
 InteractionStrength
