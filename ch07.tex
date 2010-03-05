@@ -19,9 +19,8 @@ YMR022W (pd) YDL112C = 0.441
 YDL112C (pd) YMR022W = 0.9013
 \end{verbatim}
 
- Since Cytoscape treats edge attributes as directional, the second and third
-edge attribute values refer to two different edges (source and target are
-reversed, though the nodes involved are the same). 
+在Cytoscape中，边是有方向的，所以上表中的第三行和第四行表示的是两条不同的边（涉及到的节点是一样的，但终点和起点是相反的）。
+
 
  Each attribute is stored in a separate file. Node and edge attribute files use
 the same format. Node attribute file names often use the suffix ``.noa'', while
@@ -175,54 +174,20 @@ tables is now supported. Using this functionality, users can now easily import
 data that isn't formatted into Cytoscape node or edge attribute file formats
 (as described above). 
 
- \includegraphics[scale=1]{images/attribute_table_import_main.png} 
+\centerline{\includegraphics[width=.6\textwidth]{images/attribute_table_import_main.png} }
 
  \emph{\textbf{Sample Attribute Table 1} }
 
- \textbf{Table\^A 12.\^A }
+ \textbf{Table 12. }
 
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline 
- & & & \\
-\hline 
-
- Object Key
-
-
- Alias
-
-
- SGD ID
- &
-
- AAC3
-
-
- YBR085W|ANC3
-
-
- S000000289
- &
-
- AAT2
-
-
- YLR027C|ASP5
-
-
- S000004017
- &
-
- BIK1
-
-
- YCL029C|ARM5|PAC14
-
-
- S000000534
- \\
+ Object& Key Alias& SGD ID\\
+\hline
+ AAC3 &YBR085W|ANC3& S000000289\\
+ AAT2 &YLR027C|ASP5& S000004017\\
+ BIK1 & YCL029C|ARM5|PAC14 &S000000534\\
  \hline 
-
 \end{tabular}
 
  The attribute table file should contain a primary key column and at least one attribute column. The maximum number of attribute columns is unlimited. The \emph{Alias}
