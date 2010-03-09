@@ -70,53 +70,38 @@ firstName = 1.0
 secondName = 2.5
 \end{verbatim}
 
-Every line past the first line identifies the name of an object (a node in a
-node attribute file or an edge in a edge attribute file) along with the String
-representation of the attribute value. The delimiter is always an equals sign;
-whitespace (spaces and/or tabs) before and after the equals sign is ignored.
-This means that your names and values can contain whitespace, but object names
-cannot contain an equals sign and no guarantees are made concerning leading or
-trailing whitespace. Object names must be the Node ID or Edge ID as seen in the
-left-most column of the attribute browser if the attribute is to map to
-anything. These names must be reproduced exactly, including case, or they will
-not match. 
+在第一行之后，每一行首先是对象的名称（在节点属性文件中就是节点名称，在边属性
+文件中就是边的名称），然后是该属性的值。分隔符是等号，等号前后的空格（包括中
+制表符）都会被忽略。在名称和值中可以有空格，但名称中不能含有等号，开头结尾也
+不能有空白。对象名称必须跟属性浏览器中的节点名称或边名称完全一致，包括大小写，
+否则就会匹配不上。
 
-Edge names are all of the form: 
+边的名称的形式如下：
 
- \begin{verbatim}
+\begin{verbatim}
 sourceName (edgeType) targetName
 \end{verbatim}
 
- Specifically, that is 
+具体来说，就是： 
 
- \textbf{Table\^A 10.\^A }
+\begin{verbatim}
+起点名称 空格 括号 边类型 括号 空格 终点名称
+\end{verbatim}
 
-\begin{tabular}{|c|}
- \hline 
- sourceName space openParen edgeType closeParen space targetName \\
- \hline 
-\end{tabular}
-
- Note that tabs are not allowed in edge names. Tabs can be used to separate the
-edge name from the ``='' delimiter, but not within the edge name itself. Also
-note that this format is different from the specification of interactions in
-the SIF file format. To be explicit: a SIF entry for the previous interaction
-would look like 
+注意，在边的名称中不能含有制表符。可以用制表符将边名称和``=''分隔符隔开，但边的名称里面不能含有
+制表符。此外，还要注意，这里的格式跟SIF文件的格式是不一样的。SIF文件中的相互作用的格式如下：
 
  \begin{verbatim}
 sourceName edgeType targetName
 \end{verbatim}
 
- or 
+即：
 
- \textbf{Table\^A 11.\^A }
-\begin{tabular}{|c|}
-\hline 
- sourceName whiteSpace edgeType whiteSpace targetName \\
-\hline 
-\end{tabular}
+\begin{verbatim}
+起点名称 空格 边类型 空格 终点名称
+\end{verbatim}
 
- To specify lists of values, use the following syntax: 
+设置一系列值的语法如下：
 
  \begin{verbatim}
 listAttributeName (class=java.lang.String)
@@ -124,36 +109,29 @@ firstObjectName = (firstValue::secondValue::thirdValue)
 secondObjectName = (onlyOneValue)
 \end{verbatim}
 
- This example shows an attribute whose value is defined as a list of text
-strings. The first object has three strings, and thus three elements in its
-list, while the second object has a list with only one element. In the case of
-a list every attribute value uses list syntax (i.e. parentheses), and each
-element is of the same class. Again, the class will be inferred if it is not
-specified in the header line. Lists are not supported by the visual mapper and
-so can't be mapped to visual attributes. 
+这个例子展示的属性的值是一系列的字符串。第一个对象有三个字符串，所以列表中有三个元素，而第二个对象的列表则只有
+一个元素。在属性为列表的情况下，所有的属性值都应该使用列表语法（例如，括号），
+每个元素的类型也必须一样。再提醒一下，如果没有在第一行中说明属性值的类型的话，
+Cytoscape会尝试猜测其类型。列表类型的属性不能映射到视觉属性上。
 
-\subsection{Newline Feature}
-Sometimes it is desirable to for attributes to include linebreaks, such as node
-labels that extend over two lines. You can acomplish by inserting   into the
-attribute value. For example: 
+\subsection{断行功能}
+在某些情况下，属性中会含有断行，例如节点的标签太长。在属性值中插入``\\n''就能
+实现断行。例如：
 
- \begin{verbatim}
+\begin{verbatim}
 newlineAttr
 YJL157C = This is a long\nline for a label.
 \end{verbatim}
 
-\subsection{导入属性表格文件}
+\section{导入属性表格文件}
+从Cytoscape 2.4开始，就可以导入符号分割文件和微软的Excel表格数据。有了这个功能，用户可以
+方便地将原来不被Cytoscape支持的节点或边属性文件导入到Cytoscape中。
 
- As of Cytoscape 2.4, importing delimited text and MS Excel attribute data
-tables is now supported. Using this functionality, users can now easily import
-data that isn't formatted into Cytoscape node or edge attribute file formats
-(as described above). 
+\centerline{\includegraphics[width=.4\textwidth]{images/attribute_table_import_main.png} }
 
-\centerline{\includegraphics[width=.6\textwidth]{images/attribute_table_import_main.png} }
+\emph{\textbf{Sample Attribute Table 1} }
 
- \emph{\textbf{Sample Attribute Table 1} }
-
- \textbf{Table 12. }
+\textbf{Table 12. }
 
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -161,21 +139,20 @@ data that isn't formatted into Cytoscape node or edge attribute file formats
 \hline
  AAC3 &YBR085W|ANC3& S000000289\\
  AAT2 &YLR027C|ASP5& S000004017\\
- BIK1 & YCL029C|ARM5|PAC14 &S000000534\\
+ BIK1 &YCL029C|ARM5|PAC14 &S000000534\\
  \hline 
 \end{tabular}
 
- The attribute table file should contain a primary key column and at least one
+The attribute table file should contain a primary key column and at least one
 attribute column. The maximum number of attribute columns is unlimited. The
 \emph{Alias} column is an optional feature, as is using the first row of data
 as attribute names. Alternatively, you can specify each attribute name from the
 File$\rightarrow$Import$\rightarrow$Attribute from Table (text/MS Excel)...
 user interface. 
 
-
- \textbf{Basic Operation}
-
- The user interface of the ``Import Attributes from Table'' window is similar to that of the ``Import Network from Table'' window. 
+\subsection{基本操作}
+The user interface of the ``Import Attributes from Table'' window is similar
+to that of the ``Import Network from Table'' window. 
 \begin{enumerate}
 \item Select File $\rightarrow$Import $\rightarrow$Attribute from Table (text/MS
 Excel)... 
@@ -190,16 +167,14 @@ Import Options panel.
 change the delimiter in the Text File Import Options panel. The default
 delimiter is the tab. This step is not necessary for Excel Workbooks. 
 \item By default, the first column is designated as the primary key. Change the
-key column if necessary.
-\begin{itemize}
-\item \includegraphics[width=\textwidth]{images/attribute_table_import_primary_key.png} 
-\end{itemize}
+key column if necessary.\\
+\includegraphics[width=0.3\textwidth]{images/attribute_table_import_primary_key.png} 
 \item Click the Import button. 
 \end{enumerate}
  
-\textbf{Advanced Options}
-\textbf{Mapping Key Attributes to the primary key}
- Formerly, Cytoscape only supported mapping between node/edge IDs and the
+\subsection{高级选项}
+\subsubsection{Mapping Key Attributes to the primary key}
+Formerly, Cytoscape only supported mapping between node/edge IDs and the
 primary keys in attribute files. With the introduction of Cytoscape 2.4, this
 limitation has been removed, and now both IDs and attributes with primitive
 data types (string, boolean, floating point, and integer) can be selected as
@@ -207,10 +182,9 @@ the Key Attribute using the dropdown list provided. Complex attributes such as
 lists are not supported. 
 
 
- \includegraphics[width=\textwidth]{images/attribute_table_import_keyattr.png} 
+ \includegraphics[width=.3\textwidth]{images/attribute_table_import_keyattr.png} 
  
-\subsection{Aliases}
-
+\subsubsection{别名}
  Cytoscape uses a simple mechanism to manage aliases of objects. Both nodes and
 edges can have aliases. If an attribute is loaded as an alias, it is treated as
 a special attribute called ``alias''. This will be used when mapping
@@ -219,27 +193,17 @@ Cytoscape will search for a match between aliases and the key attribute. To
 define an alias column in the attribute table, just click on the checkboxes to
 the left of the column name while importing. 
 
-
- \includegraphics[width=\textwidth]{images/attribute_table_import_alias.png} 
-
-
+\includegraphics[width=.3\textwidth]{images/attribute_table_import_alias.png} 
  
-\textbf{Text File Import Options}
-
-
- For more detail on these options, please see the ``Import Free-Format Table
+\subsubsection{文本文件导入选项}
+For more detail on these options, please see the ``Import Free-Format Table
 Files'' section of the user manual in the Creating Networks chapter. 
 
+\subsection{属性浏览器}
 
+\includegraphics[width=.5\textwidth]{images/attribute_browser26.png} 
  
-
-\textbf{Attribute Browser}
-
-
- \includegraphics[width=\textwidth]{images/attribute_browser26.png} 
-
-
- When Cytoscape is started, the Attribute Browser appears in the bottom
+When Cytoscape is started, the Attribute Browser appears in the bottom
 CytoPanel. This browser can be hidden and restored using the F5 key or the View
 $\rightarrow$ Show/Hide attribute browser menu option. Like other CytoPanels, the
 browser can be undocked by pressing the little icon in the browser's
@@ -253,7 +217,7 @@ attributes belonging to selected nodes and/or edges and the currently selected
 network. To populate the browser with rows (as pictured above), simply select
 nodes and/or edges in a loaded network. By default, only the ID of nodes and
 edges is shown. To display more than just the ID, click the Select Attributes
-\includegraphics[scale=1]{images/attributes_select_icon.png}  button and choose
+\includegraphics[width=1em]{images/attributes_select_icon.png}  button and choose
 the attributes that are to be displayed (select various attributes by clicking
 on them, and then click elsewhere on the screen to close the attribute list).
 Each attribute chosen will result in one column in the attribute browser. Most
@@ -261,14 +225,14 @@ attribute values can be edited by double-clicking an attribute cell; list
 values cannot be edited, and neither can the ID. Attribute rows in the browser
 can be sorted alphabetically by specific attribute by clicking on a column
 heading. A new attribute can be created using the Create New Attribute
-\includegraphics[scale=1]{images/attributes_new_icon.png}  button, and must be
+\includegraphics[width=1em]{images/attributes_new_icon.png}  button, and must be
 one of four types \^a integer, string, real number (floating point), or
 boolean. Attributes can be deleted using the Delete Attributes
-\includegraphics[scale=1]{images/attributes_delete_icon.png}  button.
+\includegraphics[width=1em]{images/attributes_delete_icon.png}  button.
 \textbf{NOTE: Deleting attributes removes them from Cytoscape, not just the
 attribute browser!} To remove attributes from the browser without deleting
 them, simply unselect the attribute using the Select Attributes
-\includegraphics[scale=1]{images/attributes_select_icon.png}  button. 
+\includegraphics[width=1em]{images/attributes_select_icon.png}  button. 
 
 
  The right-click menu on the Attribute Browser has several functions, such as
@@ -276,20 +240,16 @@ exporting attribute information to spreadsheet applications. For example, use
 the right-click menu to Select All and then Copy the data, and then paste it
 into a spreadsheet application. Each attribute browser panel also has a button
 for importing new attributes:
-\includegraphics[scale=1]{images/attributes_import_icon.png}  . 
-
+\includegraphics[width=1em]{images/attributes_import_icon.png}  . 
 
  The Node Attribute Browser panel has additional buttons for loading Gene
 Expression attribute matrices (
 \includegraphics[width=1em]{images/attributes_gene_expr_icon.png}  ) as node
 attributes. 
 
+\subsubsection{属性批量编辑器}
 
- \textbf{Attribute Batch Editor}
-
-
- \includegraphics[width=\textwidth]{images/attribute_editor26.png} 
-
+\includegraphics[width=.5\textwidth]{images/attribute_editor26.png} 
 
  From Cytoscape 2.6, Attribute Browser has new \textbf{Attribute Batch Editor}
 . This enables you to set and modify attribute values at once. This function
