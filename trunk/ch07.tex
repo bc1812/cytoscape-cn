@@ -129,10 +129,6 @@ YJL157C = This is a long\nline for a label.
 
 \centerline{\includegraphics[width=.4\textwidth]{images/attribute_table_import_main.png} }
 
-\emph{\textbf{Sample Attribute Table 1} }
-
-\textbf{Table 12. }
-
 \begin{tabular}{|c|c|c|}
 \hline 
  Object& Key Alias& SGD ID\\
@@ -143,33 +139,24 @@ YJL157C = This is a long\nline for a label.
  \hline 
 \end{tabular}
 
-The attribute table file should contain a primary key column and at least one
-attribute column. The maximum number of attribute columns is unlimited. The
-\emph{Alias} column is an optional feature, as is using the first row of data
-as attribute names. Alternatively, you can specify each attribute name from the
+属性表文件应该含有主键列，最少有一列属性。属性列的数量没有限制。因为默认会将数据的第一行作为属性名称，所以Alias（别名）列是可选的。当然也可以在
 File$\rightarrow$Import$\rightarrow$Attribute from Table (text/MS Excel)...
-user interface. 
+的用户界面中指定每一列属性的名称。
 
 \subsection{基本操作}
-The user interface of the ``Import Attributes from Table'' window is similar
-to that of the ``Import Network from Table'' window. 
+``Import Attributes from Table''窗口的用户界面跟
+``Import Network from Table''窗口的界面类似. 
 \begin{enumerate}
-\item Select File $\rightarrow$Import $\rightarrow$Attribute from Table (text/MS
+\item 选择File $\rightarrow$Import $\rightarrow$Attribute from Table (text/MS
 Excel)... 
-\item Select one of the attribute types from the Attributes radio buttons.
-Cytoscape can import node, edge, and network attributes. 
-\item Select a data file. To load a local file, click on the Select File button
-and choose a data file. This can be either a text or Excel (.xls) file. To load
-a remote file, type the source URL directly into the text box. To show a
-preview of the remote file, click the Reload button on the Show Text File
-Import Options panel. 
-\item (Optional) If the table is not properly delimited in the preview panel,
-change the delimiter in the Text File Import Options panel. The default
-delimiter is the tab. This step is not necessary for Excel Workbooks. 
-\item By default, the first column is designated as the primary key. Change the
-key column if necessary.\\
+\item 从Attributes单选按钮中选择一种属性类型，Cytoscape可以导入节点、边和网络属性。
+\item 选择数据文件。 点击Select File按钮，加载本地的纯文本文件或Excel（.xls）文件。在文本框中输入远程文件的URL就能加载远程文件。点击Show Text File Import Options面板中的Reload按钮能显示远程文件的预览。
+\item （可选） 如果表格分割不正确，可以调整
+Text File Import Options面板中的分隔符。缺省的分隔符是制表符。
+对于Excel文件则不需要这一步。
+\item 缺省情况下，第一列属性是主键。有必要的话可以修改。\\
 \includegraphics[width=0.3\textwidth]{images/attribute_table_import_primary_key.png} 
-\item Click the Import button. 
+\item 点击Import按钮。 
 \end{enumerate}
  
 \subsection{高级选项}
@@ -181,11 +168,10 @@ data types (string, boolean, floating point, and integer) can be selected as
 the Key Attribute using the dropdown list provided. Complex attributes such as
 lists are not supported. 
 
-
- \includegraphics[width=.3\textwidth]{images/attribute_table_import_keyattr.png} 
+\includegraphics[width=.3\textwidth]{images/attribute_table_import_keyattr.png} 
  
 \subsubsection{别名}
- Cytoscape uses a simple mechanism to manage aliases of objects. Both nodes and
+Cytoscape uses a simple mechanism to manage aliases of objects. Both nodes and
 edges can have aliases. If an attribute is loaded as an alias, it is treated as
 a special attribute called ``alias''. This will be used when mapping
 attributes. If the primary key and key attribute for an object do not match,
@@ -200,7 +186,6 @@ For more detail on these options, please see the ``Import Free-Format Table
 Files'' section of the user manual in the Creating Networks chapter. 
 
 \subsection{属性浏览器}
-
 \includegraphics[width=.5\textwidth]{images/attribute_browser26.png} 
  
 When Cytoscape is started, the Attribute Browser appears in the bottom
@@ -208,7 +193,6 @@ CytoPanel. This browser can be hidden and restored using the F5 key or the View
 $\rightarrow$ Show/Hide attribute browser menu option. Like other CytoPanels, the
 browser can be undocked by pressing the little icon in the browser's
 top right corner. 
-
 
  To swap between displaying node, edge, and network attributes use the tabs on
 the bottom of the panel labelled ``Node Attribute Browser'', ``Edge Attribute
@@ -234,8 +218,7 @@ attribute browser!} To remove attributes from the browser without deleting
 them, simply unselect the attribute using the Select Attributes
 \includegraphics[width=1em]{images/attributes_select_icon.png}  button. 
 
-
- The right-click menu on the Attribute Browser has several functions, such as
+The right-click menu on the Attribute Browser has several functions, such as
 exporting attribute information to spreadsheet applications. For example, use
 the right-click menu to Select All and then Copy the data, and then paste it
 into a spreadsheet application. Each attribute browser panel also has a button
@@ -248,10 +231,9 @@ Expression attribute matrices (
 attributes. 
 
 \subsubsection{属性批量编辑器}
-
 \includegraphics[width=.5\textwidth]{images/attribute_editor26.png} 
 
- From Cytoscape 2.6, Attribute Browser has new \textbf{Attribute Batch Editor}
+From Cytoscape 2.6, Attribute Browser has new \textbf{Attribute Batch Editor}
 . This enables you to set and modify attribute values at once. This function
 changes values for selected nodes or edges. For example, if you want to create
 a new attribute called \emph{Modules} and set module names for each group of
