@@ -68,20 +68,53 @@ probeset4 PRS1 -0.167 -0.233 0.112 6.27120e-03 7.89400e-04 1.44060e-01
 <tab><tab>RATIOS<tab><tab>...LAMBDAS
 \end{verbatim}
 第一种格式中既有基因表达比例，也有显著度。前两个尖括号中的是基因的名称，例如正式名称和常见名称。
-The first format specifies that both expression ratios and significance values are included in the file. The first two text tokens (in angled brackets) contain names for each gene, such as the formal and common gene names. The condX token set specifies the names of the experimental conditions; these columns will contain ratio values. This list of condition names must then be duplicated exactly, each spelled the same way and in the same order. Optionally, a final column with the title NumSigConds may be present. If present, this column will contain integer values indicating the number of conditions in which each gene had a statistically significant change according to some threshold. 
+The first format specifies that both expression ratios and significance values
+are included in the file. The first two text tokens (in angled brackets)
+contain names for each gene, such as the formal and common gene names. The
+condX token set specifies the names of the experimental conditions; these
+columns will contain ratio values. This list of condition names must then be
+duplicated exactly, each spelled the same way and in the same order.
+Optionally, a final column with the title NumSigConds may be present. If
+present, this column will contain integer values indicating the number of
+conditions in which each gene had a statistically significant change according
+to some threshold. 
 
-The second format is similar to the first except that the duplicate column names are omitted, and there is no NumSigConds field. This format specifies data with ratios but no significance values. 
+The second format is similar to the first except that the duplicate column
+names are omitted, and there is no NumSigConds field. This format specifies
+data with ratios but no significance values. 
 
-The third format specifies an MTX header, which is a commonly used format. Two tab characters precede the RATIOS token. This token is followed by a number of tabs equal to the number of conditions, followed by the LAMBDAS token. This format specifies both ratios and significance values. 
+The third format specifies an MTX header, which is a commonly used format. Two
+tab characters precede the RATIOS token. This token is followed by a number of
+tabs equal to the number of conditions, followed by the LAMBDAS token. This
+format specifies both ratios and significance values. 
 
 Each line after the first is a data line with the following format: 
 \begin{verbatim}
 FormalGeneName CommonGeneName ratio1 ratio2 ... [lambda1 lambda2 ...] [numSigConds]
 \end{verbatim}
-The first two tokens are gene names. The names in the first column are the keys used for node name lookup; these names should be the same as the names used elsewhere in Cytoscape (i.e. in the SIF, GML, or XGMML files). Traditionally in the gene expression microarray community, who defined these file formats, the first token is expected to be the formal name of the gene (in systems where there is a formal naming scheme for genes), while the second is expected to be a synonym for the gene commonly used by biologists, although Cytoscape does not make use of the common name column. The next columns contain floating point values for the ratios, followed by columns with the significance values if specified by the header line. The final column, if specified by the header line, should contain an integer giving the number of significant conditions for that gene. Missing values are not allowed and will confuse the parser. For example, using two consecutive tabs to indicate a missing value will not work; the parser will regard both tabs as a single delimiter and be unable to parse the line correctly. 
 
-Optionally, the last line of the file may be a special footer line with the following format: 
+The first two tokens are gene names. The names in the first column are the keys
+used for node name lookup; these names should be the same as the names used
+elsewhere in Cytoscape (i.e. in the SIF, GML, or XGMML files). Traditionally in
+the gene expression microarray community, who defined these file formats, the
+first token is expected to be the formal name of the gene (in systems where
+there is a formal naming scheme for genes), while the second is expected to be
+a synonym for the gene commonly used by biologists, although Cytoscape does not
+make use of the common name column. The next columns contain floating point
+values for the ratios, followed by columns with the significance values if
+specified by the header line. The final column, if specified by the header
+line, should contain an integer giving the number of significant conditions for
+that gene. Missing values are not allowed and will confuse the parser. For
+example, using two consecutive tabs to indicate a missing value will not work;
+the parser will regard both tabs as a single delimiter and be unable to parse
+the line correctly. 
+
+Optionally, the last line of the file may be a special footer line with the
+following format: 
  \begin{verbatim}
 NumSigGenes int1 int2 ...
 \end{verbatim}
-This line specified the number of genes that were significantly differentially expressed in each condition. The first text token must be spelled exactly as shown; the rest of the line should contain one integer value for each experimental condition. 
+This line specified the number of genes that were significantly differentially
+expressed in each condition. The first text token must be spelled exactly as
+shown; the rest of the line should contain one integer value for each
+experimental condition. 

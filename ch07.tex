@@ -160,39 +160,31 @@ Text File Import Options面板中的分隔符。缺省的分隔符是制表符�
 \end{enumerate}
  
 \subsection{高级选项}
-\subsubsection{Mapping Key Attributes to the primary key}
-Formerly, Cytoscape only supported mapping between node/edge IDs and the
-primary keys in attribute files. With the introduction of Cytoscape 2.4, this
-limitation has been removed, and now both IDs and attributes with primitive
-data types (string, boolean, floating point, and integer) can be selected as
-the Key Attribute using the dropdown list provided. Complex attributes such as
-lists are not supported. 
+\subsubsection{映射关键属性到主键}
+以前，Cytoscape只支持节点或边名称和属性文件中主键之间的映射。在Cytoscape 2.4之后，
+就没有这个限制了，通过下拉选单，不仅仅是名称，节点或边的其它各种类型的属性（字符串
+、布尔、浮点数和整数）都可以作为关键属性。但暂不支持诸如列表一类的复杂属性。
 
 \includegraphics[width=.3\textwidth]{images/attribute_table_import_keyattr.png} 
  
 \subsubsection{别名}
-Cytoscape uses a simple mechanism to manage aliases of objects. Both nodes and
-edges can have aliases. If an attribute is loaded as an alias, it is treated as
-a special attribute called ``alias''. This will be used when mapping
-attributes. If the primary key and key attribute for an object do not match,
-Cytoscape will search for a match between aliases and the key attribute. To
-define an alias column in the attribute table, just click on the checkboxes to
-the left of the column name while importing. 
+Cytoscape管理的别名管理机制很简单。节点和边都可以有别名。如果某个属性被设置为别名，
+该属性就被视为``别名''。在映射属性时也会使用它。如果某个对象的主键和关键属性不匹配，Cytoscape就会
+寻找可能匹配的别名和关键属性。在导入属性时，点击列名称左侧的选择框就能在属性表中
+设置别名列。
 
 \includegraphics[width=.3\textwidth]{images/attribute_table_import_alias.png} 
  
 \subsubsection{文本文件导入选项}
-For more detail on these options, please see the ``Import Free-Format Table
-Files'' section of the user manual in the Creating Networks chapter. 
+关于这些选项的详细信息，请阅读用户手册``创建网络''一章中的
+``导入格式灵活的表格文件''。 
 
 \subsection{属性浏览器}
 \includegraphics[width=.5\textwidth]{images/attribute_browser26.png} 
  
-When Cytoscape is started, the Attribute Browser appears in the bottom
-CytoPanel. This browser can be hidden and restored using the F5 key or the View
-$\rightarrow$ Show/Hide attribute browser menu option. Like other CytoPanels, the
-browser can be undocked by pressing the little icon in the browser's
-top right corner. 
+启动Cytoscape后，属性浏览器会出现在底部的CytoPanel中。通过F5按键或 View 
+$\rightarrow$ Show/Hide attribute browser菜单项可以隐藏或显示该CytoPanel。 
+跟其它的CytoPanel一样，点击其右上角的图标可以将其设为漂浮状态。
 
  To swap between displaying node, edge, and network attributes use the tabs on
 the bottom of the panel labelled ``Node Attribute Browser'', ``Edge Attribute
