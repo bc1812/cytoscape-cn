@@ -69,28 +69,18 @@ probeset4 PRS1 -0.167 -0.233 0.112 6.27120e-03 7.89400e-04 1.44060e-01
 \end{verbatim}
 第一种格式中既有基因表达比例，也有显著度。前两个尖括号中的是基因的名称，
 可以是正式名称或常用名称。condX用于指定实验条件的名称；这些列可以包含
-表达强度的比值。
-The first format specifies that both expression ratios and significance values
-are included in the file. The first two text tokens (in angled brackets)
-contain names for each gene, such as the formal and common gene names. The
-condX token set specifies the names of the experimental conditions; these
-columns will contain ratio values. This list of condition names must then be
-duplicated exactly, each spelled the same way and in the same order.
-Optionally, a final column with the title NumSigConds may be present. If
-present, this column will contain integer values indicating the number of
-conditions in which each gene had a statistically significant change according
-to some threshold. 
+表达强度的比值。实验条件的名称列表必须完全一致，包括名称的拼写方式和它们
+的顺序。另外，可以加入一个NumSigConds字段。这个字段中的整数值表示根据
+给定的阈值，基因在多少实验条件下的表达是显著的。
 
-The second format is similar to the first except that the duplicate column
-names are omitted, and there is no NumSigConds field. This format specifies
-data with ratios but no significance values. 
+第二种格式跟第一种格式差不多，只是去除了重复的列，而且没有NumSigConds字段。
+所以这个格式里面只有表达的比值，没有显著性。
 
-The third format specifies an MTX header, which is a commonly used format. Two
-tab characters precede the RATIOS token. This token is followed by a number of
-tabs equal to the number of conditions, followed by the LAMBDAS token. This
-format specifies both ratios and significance values. 
+第三种格式设定了MTX头部，这是一种常用的格式。在RATIOS字段前是两个制表符。接下来
+是一串制表符，其数量等同于实验条件的数量，最后是LAMBDAS字段。这个格式里面
+包含了表达比值和显著性。
 
-Each line after the first is a data line with the following format: 
+上面介绍了第一行的格式，接下来就是数据：
 \begin{verbatim}
 FormalGeneName CommonGeneName ratio1 ratio2 ... [lambda1 lambda2 ...] [numSigConds]
 \end{verbatim}
