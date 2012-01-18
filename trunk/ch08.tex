@@ -85,28 +85,12 @@ probeset4 PRS1 -0.167 -0.233 0.112 6.27120e-03 7.89400e-04 1.44060e-01
 FormalGeneName CommonGeneName ratio1 ratio2 ... [lambda1 lambda2 ...] [numSigConds]
 \end{verbatim}
 
-The first two tokens are gene names. The names in the first column are the keys
-used for node name lookup; these names should be the same as the names used
-elsewhere in Cytoscape (i.e. in the SIF, GML, or XGMML files). Traditionally in
-the gene expression microarray community, who defined these file formats, the
-first token is expected to be the formal name of the gene (in systems where
-there is a formal naming scheme for genes), while the second is expected to be
-a synonym for the gene commonly used by biologists, although Cytoscape does not
-make use of the common name column. The next columns contain floating point
-values for the ratios, followed by columns with the significance values if
-specified by the header line. The final column, if specified by the header
-line, should contain an integer giving the number of significant conditions for
-that gene. Missing values are not allowed and will confuse the parser. For
-example, using two consecutive tabs to indicate a missing value will not work;
-the parser will regard both tabs as a single delimiter and be unable to parse
-the line correctly. 
+前两个标记都是基因名称。在第一列的名称是关键字，可用于查找节点名称；这些名称应在Cytoscape其他地方使用的名称相同（如  SIF，GML，或XGMML文件）。传统的基因表达微阵列社区定义了这些文件格式，期望第一个标记是该基因的正式名称（在系统中有一个基因正式命名方案）。 而第二个是预计的生物学家常用的代名词。虽然Cytoscape不使用相同的名字列。下一个列包含浮点值的比率，如果为标题行中指定列，后面跟着显著性值列。最后一列，如果指定了标题行，应该包含一个整数表示该基因的显著性条件。缺失值是不允许的，并会混淆解析器。例如，使用两个连续的标签，表明缺失值将无法正常工作;解析器将视为一个单一的分隔符为两个标签，无法正确解析该行。
 
-Optionally, the last line of the file may be a special footer line with the
-following format: 
+或者，文件的最后一行可能是一个特殊的页脚行，格式如下：
+
 \begin{verbatim}
 NumSigGenes int1 int2 ...
 \end{verbatim}
-This line specified the number of genes that were significantly differentially
-expressed in each condition. The first text token must be spelled exactly as
-shown; the rest of the line should contain one integer value for each
-experimental condition. 
+此行指定了每个条件下显著差异表达的基因数目。第一个文本标记必须拼写跟显示的完全相同; 行的其余部分应为每个实验条件包含一个整数值。
+
